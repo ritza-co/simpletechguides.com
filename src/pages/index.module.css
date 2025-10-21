@@ -1,0 +1,223 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+/* Magazine Layout */
+.magazineLayout {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+/* Featured Section */
+.featuredSection {
+  margin-bottom: 4rem;
+}
+
+.featuredGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.featuredMain {
+  grid-column: 1;
+}
+
+.featuredSidebar {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Article Cards */
+.articleCard {
+  background: var(--ifm-card-background-color);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.articleImage {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  background: var(--ifm-background-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 250px;
+}
+
+.articleImage img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.featuredCard .articleImage {
+  min-height: 400px;
+  height: auto;
+}
+
+.articleCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.articleLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+}
+
+.articleLink:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.articleContent {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.featuredCard .articleContent {
+  padding: 3rem;
+}
+
+.articleMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.category {
+  background: var(--ifm-color-primary);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.date {
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.875rem;
+}
+
+.articleTitle {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+  color: var(--ifm-heading-color);
+}
+
+.featuredCard .articleTitle {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.articleDescription {
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.featuredCard .articleDescription {
+  font-size: 1.125rem;
+}
+
+.articleFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.author {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Recent Articles Section */
+.recentSection {
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 2px solid var(--ifm-color-emphasis-200);
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--ifm-heading-color);
+}
+
+.articleGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 996px) {
+  .magazineLayout {
+    padding: 2rem 1rem;
+  }
+
+  .featuredGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .featuredMain,
+  .featuredSidebar {
+    grid-column: 1;
+  }
+
+  .featuredCard .articleTitle {
+    font-size: 2rem;
+  }
+
+  .featuredCard .articleDescription {
+    font-size: 1rem;
+  }
+
+  .articleGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .articleContent {
+    padding: 1.5rem;
+  }
+
+  .featuredCard .articleContent {
+    padding: 2rem;
+  }
+
+  .featuredCard .articleTitle {
+    font-size: 1.75rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+}
