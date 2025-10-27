@@ -9,11 +9,11 @@ Both platforms deploy web applications, but they're built for different use case
 
 This guide compares architecture, pricing, developer experience, performance, security, and migration to help you choose the platform that best fits your project.
 
-## Quick decision framework 
+## Quick Decision Framework 
 
 Vercel and Railway solve different problems. Vercel optimizes for frontend deployments with serverless APIs, while Railway handles full-stack applications that need persistent processes. Here's how to decide quickly:
 
-### Choose Vercel if: 
+### Choose Vercel If: 
 
 - You're building a frontend-focused app (Next.js, React, static sites).
 
@@ -25,7 +25,7 @@ Vercel and Railway solve different problems. Vercel optimizes for frontend deplo
 
 - You want zero infrastructure decisions: Vercel handles everything automatically
 
-### Choose Railway if: 
+### Choose Railway If: 
 
 - You're building a full-stack application with backend complexity.
 - You need WebSockets, real-time features, or persistent connections.
@@ -33,7 +33,7 @@ Vercel and Railway solve different problems. Vercel optimizes for frontend deplo
 - You want your database, backend, and workers in one place without juggling multiple services.
 - You need scaling headroom (up to 8 vCPU / 8 GB RAM on Hobby, 32 vCPU / 32 GB on Pro).
 
-## How we're making this comparison
+## How We're Making This Comparison
 
 We deployed the same Express + Tailwind + Postgres application to both platforms to show you exactly what the setup process looks like and where the platforms diverge. The technology stack represents a typical full-stack app without framework-specific optimizations that would favor one platform over the other.
 
@@ -43,7 +43,7 @@ The architectural differences you'll see here apply whether you're building with
 
 The core difference between Vercel and Railway is in how they run your application. Knowing their architecture determines what types of applications you can actually build. 
 
-### Vercel: Serverless functions
+### Vercel: Serverless Functions
 
 Vercel routes each API request to a serverless function that spins up, executes your code, and shuts down. Their Fluid Compute model runs multiple invocations on a single instance through in-function concurrency, making it more efficient than traditional serverless.
 
@@ -56,7 +56,7 @@ The tradeoffs hit when you need:
 - **Background workers**: Queue workers or continuous processes won't run because functions shut down after each request.
 - **Instant response times**: Cold starts add 200ms-2s latency to the first request after inactivity, even with bytecode caching.
 
-### Railway: Scalable containers
+### Railway: Scalable Containers
 
 Railway packages your service into a container using Railpack or your Dockerfile. Your application starts once and stays running, handling requests continuously like a traditional server. Optional serverless mode puts services to sleep after 10 minutes of inactivity, eliminating idle costs while keeping container flexibility when you need it.
 
@@ -88,11 +88,11 @@ We deployed the same Express + Postgres application to both platforms to show yo
 
 Vercel connects to your GitHub account. When creating a project, select your repository from the list. 
 
-![Selecting Github project](/Users/koladev/ritza/simpletechguides.com/comparisons/assets/CleanShot 2025-10-27 at 03.36.26@2x.png)
+![Selecting Github project](/Users/koladev/ritza/simpletechguides.com/comparisons/assets/vercel-select-github-project.png)
 
 Vercel shows you a configuration page where you set the application name, build commands, and environment variables.
 
-![CleanShot 2025-10-27 at 03.38.27@2x](/Users/koladev/ritza/simpletechguides.com/comparisons/assets/CleanShot 2025-10-27 at 03.38.27@2x.png)
+![Vercel configuration page](/Users/koladev/ritza/simpletechguides.com/comparisons/assets/vercel-configuration-page.png)
 
 Since we're deploying an Express application, we set the Framework Preset to Express so Vercel knows how to handle the deployment.
 
@@ -101,19 +101,19 @@ After deployment, Vercel provides two URLs:
 - The latest deployment URL which is updated with each commit if automatic deployment is enabled.
 - The production domain where Vercel assigns a default `.vercel.app` domain.
 
-![Domains URLs](/Users/koladev/ritza/simpletechguides.com/comparisons/assets/CleanShot 2025-10-27 at 03.44.59@2x.png)
+![Domains URLs](/Users/koladev/ritza/simpletechguides.com/comparisons/assets/vercel-domain-urls.png)
 
 #### Adding the Database
 
 Our Express app needs PostgreSQL, so we added a database through Vercel's Storage tab. 
 
-![List of options](/Users/koladev/ritza/simpletechguides.com/comparisons/assets/CleanShot 2025-10-27 at 03.49.34@2x.png)
+![List of options](/Users/koladev/ritza/simpletechguides.com/comparisons/assets/vercel-storage-options.png)
 
 Vercel offers integrations with Supabase, Neon, and Prisma Postgres. We chose Supabase's free tier. 
 
 Vercel automatically injects the database connection variables into the application environment with no manual configuration needed.
 
-![CleanShot 2025-10-27 at 03.57.46@2x](/Users/koladev/ritza/simpletechguides.com/comparisons/assets/CleanShot 2025-10-27 at 03.57.46@2x.png)
+![Vercel database variables](/Users/koladev/ritza/simpletechguides.com/comparisons/assets/vercel-database-variables.png)
 
 #### Configuring the Project
 
@@ -155,7 +155,7 @@ Railway's deployment is similar to Vercel's, but with key differences in project
 
 Railway runs Docker containers, so you can deploy databases, workers, and multiple services, not just web applications.
 
-![CleanShot 2025-10-27 at 04.10.18@2x](/Users/koladev/ritza/simpletechguides.com/comparisons/assets/CleanShot 2025-10-27 at 04.10.18@2x.png)
+![Railway project dashboard](/Users/koladev/ritza/simpletechguides.com/comparisons/assets/railway-project-dashboard.png)
 
 After importing your GitHub project, Railway builds and deploys using your Dockerfile. Here's the Dockerfile we used:
 
@@ -219,21 +219,21 @@ This multi-stage Dockerfile builds Tailwind CSS in the first stage, then copies 
 
 The first build takes around 75 seconds – longer than Vercel's 15 seconds because Railway builds the full Docker container. After the initial build, Railway caches packages and layers to speed up subsequent deployments.
 
-#### Adding the database
+#### Adding the Database
 
 Adding a database works like adding any service in Railway. Click "New" and select from PostgreSQL, MySQL, Redis, or MongoDB. We chose PostgreSQL, which deployed in 3 seconds.
 
-![CleanShot 2025-10-27 at 04.16.14@2x](/Users/koladev/ritza/simpletechguides.com/comparisons/assets/CleanShot 2025-10-27 at 04.16.14@2x.png)
+![Railway add database](/Users/koladev/ritza/simpletechguides.com/comparisons/assets/railway-add-database.png)
 
 Once the database service is running, navigate to the Variables tab in your Express service. Railway prompts you to add database variables and lists all environment variables from the database service. We selected `DATABASE_URL`, which Railway automatically injects into the Express container, connecting both services over Railway's private network.
 
-![CleanShot 2025-10-27 at 04.17.34@2x](/Users/koladev/ritza/simpletechguides.com/comparisons/assets/CleanShot 2025-10-27 at 04.17.34@2x.png)
+![Railway database variables](/Users/koladev/ritza/simpletechguides.com/comparisons/assets/railway-database-variables.png)
 
-#### Get your application link
+#### Get Your Application Link
 
 To access your deployed application, navigate to **Settings → Networking**, then either generate a Railway-provided URL or add a custom domain.
 
-![CleanShot 2025-10-27 at 04.25.00@2x](/Users/koladev/ritza/simpletechguides.com/comparisons/assets/CleanShot 2025-10-27 at 04.25.00@2x.png)
+![Railway networking settings](/Users/koladev/ritza/simpletechguides.com/comparisons/assets/railway-networking-settings.png)
 
 ### Deployment Challenges
 
@@ -301,11 +301,11 @@ Railway connected to the same Supabase instance without SSL configuration change
 
 In summary, both platforms deployed the application successfully, but Vercel required platform-specific workarounds for database connections that Railway handled without modification. If you're new to serverless architectures, these quirks add friction that isn't immediately obvious from the documentation.
 
-## Monitoring and observability 
+## Monitoring and Observability 
 
 Both platforms provide built-in monitoring, but Vercel offers more granular observability tools.
 
-### Railway's monitoring
+### Railway's Monitoring
 
 Railway's dashboard shows real-time metrics for your services:
 
@@ -314,11 +314,11 @@ Railway's dashboard shows real-time metrics for your services:
 - Error rates by service.
 - Deployment history.
 
-![CleanShot 2025-10-27 at 04.29.48@2x](/Users/koladev/ritza/simpletechguides.com/comparisons/assets/CleanShot 2025-10-27 at 04.29.48@2x.png)
+![Railway monitoring dashboard](/Users/koladev/ritza/simpletechguides.com/comparisons/assets/railway-monitoring-dashboard.png)
 
 The Logs page live-tails your application output with a search and filtering text input. Log retention is 7 days on Hobby, 30 days on Pro, and 90 days on Enterprise.
 
-![Live tail](/Users/koladev/ritza/simpletechguides.com/comparisons/assets/CleanShot 2025-10-27 at 04.31.28@2x.png)
+![Live tail](/Users/koladev/ritza/simpletechguides.com/comparisons/assets/railway-live-tail-logs.png)
 
 Railway's dashboards give you enough information to spot resource bottlenecks and catch errors, but don't provide request-level tracing or performance breakdowns.
 
@@ -332,7 +332,7 @@ Vercel's Logs page offers more filtering options:
 - Filter by specific function or route. 
 - Filter by resource, host, request type, request path. 
 
-![CleanShot 2025-10-27 at 04.33.01@2x](/Users/koladev/ritza/simpletechguides.com/comparisons/assets/CleanShot 2025-10-27 at 04.33.01@2x.png)
+![Vercel logs filtering](/Users/koladev/ritza/simpletechguides.com/comparisons/assets/vercel-logs-filtering.png)
 
 The Observability page adds deeper insights:
 
@@ -346,11 +346,11 @@ The Observability page adds deeper insights:
 
 - Custom alerts for errors or performance thresholds.
 
-![CleanShot 2025-10-27 at 04.34.25@2x](/Users/koladev/ritza/simpletechguides.com/comparisons/assets/CleanShot 2025-10-27 at 04.34.25@2x.png)
+![Vercel observability page](/Users/koladev/ritza/simpletechguides.com/comparisons/assets/vercel-observability-page.png)
 
 Vercel's observability helps you diagnose performance issues at the request level, identifying which API routes are slow, where cold starts impact users, and how middleware affects response times.
 
-### Our takeaway
+### Our Takeaway
 
 We found Vercel's observability tools more useful for debugging performance issues. The request-level data, response times, function execution duration, cold start metrics, provides enough metrics to tell if an endpoint is slow or not.
 
@@ -360,19 +360,19 @@ Railway's dashboards focus on infrastructure metrics, CPU, memory, error counts.
 
 Both platforms justify their pricing differently: Vercel charges for abstraction and convenience, while Railway charges for raw compute resources.
 
-### Vercel's pricing: paying for abstraction
+### Vercel's Pricing: Paying for Abstraction
 
 Vercel bundles infrastructure management into the cost. You're not just paying for compute but you're paying for zero server configuration, automatic scaling, global CDN, image optimization, and built-in analytics. The Pro plan starts at $20/user/month with usage overages for bandwidth ($0.15/GB) and edge requests ($2 per million).
 
 We found Vercel's pricing makes sense for frontend-heavy apps with moderate API usage. The convenience of having everything configured automatically justifies the premium, especially if your team doesn't want to manage infrastructure.
 
-### Railway's pricing: paying for resources
+### Railway's Pricing: Paying for Resources
 
 Railway charges directly for what you consume—CPU time ($0.000463/vCPU-minute), memory ($0.000231/GB-minute), and bandwidth ($0.10/GB). The Hobby plan includes $5 of usage credits monthly for $5/month. Pro includes $20 credits for $20/month.
 
 We found Railway cheaper for backend-heavy workloads because you're not paying for bundled features you don't need. An Express API with Postgres serving thousands of requests per month that sits at 20% CPU utilization costs roughly $10-15/month on Railway versus $50-100/month on Vercel once you factor in bandwidth and request charges when you have spikes.
 
-## Vendor Lockin
+## Vendor Lock-In
 
 Migration difficulty varies significantly between platforms. Railway's Docker-based approach makes moving to other platforms straightforward, while Vercel's serverless model creates platform-specific dependencies.
 
@@ -397,29 +397,29 @@ Here are some interesting migrations scenarios:
 - **Railway → Vercel**: Extremely difficult or impossible if you use WebSockets, background workers, or long-running tasks. This will require fundamental rearchitecture with external services.
 - **Railway → Any Container Platform**: It will take days. You just need to export your Dockerfile, update the environment variables, redeploy. It works perfectlyy on AWS ECS, Google Cloud Run, Azure, DigitalOcean, Fly.io, or your own servers.
 
-### Our takeaway
+### Our Takeaway
 
 We found Railway's portability valuable even if we never migrate. Knowing we can move to another platform without rebuilding the application removes a major business risk. With Vercel, every platform-specific feature we add – Edge Functions, ISR, Image Optimization – increases the cost of leaving later.
 
 The real cost of vendor lock-in isn't necessarily  the monthly subscription: it's the weeks of engineering time and potential downtime when your requirements change and you need to migrate to another vendor.
 
-## Developer experience
+## Developer Experience
 
 Both platforms prioritize developer experience, but they optimize for different workflows, Vercel for speed and zero configuration, Railway for control and flexibility.
 
 ### Vercel
 
-#### Deployment Speed & Workflow
+#### Deployment Speed and Workflow
 
 Vercel optimizes for frontend deployment speed. Build times run 30 seconds to 3 minutes thanks to aggressive caching. You connect your GitHub repository and Vercel detects your framework, configures build settings, and deploys automatically. 
 
 Every git push triggers a new deployment, and merged pull requests ship to production without manual intervention.
 
-#### CLI Tools & Local Development
+#### CLI Tools and Local Development
 
 Vercel CLI handles deployment, environment variables, and log inspection. The CLI focuses primarily on deployment rather than local development, you use your framework's dev server (like `next dev`) for local work. Vercel-specific features sometimes behave differently locally versus in production, particularly around serverless function execution and timeouts.
 
-#### Configuration & Infrastructure as Code
+#### Configuration and Infrastructure as Code
 
 Vercel uses `vercel.json` for route and build configuration, but most settings live in the dashboard. Moving configuration between projects or teams requires manual UI work. 
 
@@ -427,17 +427,17 @@ The serverless model abstracts infrastructure decisions, simplifying initial set
 
 ### Railway
 
-#### Deployment speed and workflow
+#### Deployment Speed and Workflow
 
 Railway matches Vercel's deployment simplicity with added flexibility. Builds complete in 1-4 minutes depending on dependencies. 
 
 Railway's Railpack automatically detects your stack and generates build configuration. You choose between automatic deployments on every push or manual deployment triggers, giving you control over when code ships to production.
 
-#### CLI Tools & Local Development
+#### CLI Tools and Local Development
 
 Railway CLI extends beyond deployment into local development workflows. The `railway run` command executes code with production environment variables loaded locally, and `railway link` connects your local project to Railway services like databases. This bridges the local-to-production gap more effectively than Vercel's approach.
 
-#### Configuration & Infrastructure as Code
+#### Configuration and Infrastructure as Code
 
 Railway uses `railway.json` or `railway.toml` for configuration, with full support for managing everything as code. Dockerfile support provides complete control over your build and runtime environment. Version control your entire infrastructure setup alongside your application code.
 
@@ -445,7 +445,7 @@ Railway uses `railway.json` or `railway.toml` for configuration, with full suppo
 
 We found Vercel's zero-config approach fastest for frontend projects where infrastructure shouldn't be a concern. Railway's flexibility with Dockerfiles and `railway run` gave us better local-to-production parity, which mattered more for our Express backend where debugging environment-specific issues was critical.
 
-## Final thoughts
+## Final Thoughts
 
 After deploying the same Express + Postgres application to both platforms, we found Railway's container model works better for most Express applications, lower costs ($15-25/month vs $50-100/month), no architectural constraints around WebSockets or background jobs, and easy migration to other platforms if you outgrow it.
 
