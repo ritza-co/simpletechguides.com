@@ -88,11 +88,11 @@ We deployed the same Express + Postgres application to both platforms to show yo
 
 Vercel connects to your GitHub account. When creating a project, select your repository from the list. 
 
-![Selecting Github project](/Users/koladev/ritza/simpletechguides.com/comparisons/assets/vercel-select-github-project.png)
+![Selecting Github project](./assets/vercel-select-github-project.png)
 
 Vercel shows you a configuration page where you set the application name, build commands, and environment variables.
 
-![Vercel configuration page](/Users/koladev/ritza/simpletechguides.com/comparisons/assets/vercel-configuration-page.png)
+![Vercel configuration page](./assets/vercel-configuration-page.png)
 
 Since we're deploying an Express application, we set the Framework Preset to Express so Vercel knows how to handle the deployment.
 
@@ -101,19 +101,19 @@ After deployment, Vercel provides two URLs:
 - The latest deployment URL which is updated with each commit if automatic deployment is enabled.
 - The production domain where Vercel assigns a default `.vercel.app` domain.
 
-![Domains URLs](/Users/koladev/ritza/simpletechguides.com/comparisons/assets/vercel-domain-urls.png)
+![Domains URLs](./assets/vercel-domain-urls.png)
 
 #### Adding the Database
 
 Our Express app needs PostgreSQL, so we added a database through Vercel's Storage tab. 
 
-![List of options](/Users/koladev/ritza/simpletechguides.com/comparisons/assets/vercel-storage-options.png)
+![List of options](./assets/vercel-storage-options.png)
 
 Vercel offers integrations with Supabase, Neon, and Prisma Postgres. We chose Supabase's free tier. 
 
 Vercel automatically injects the database connection variables into the application environment with no manual configuration needed.
 
-![Vercel database variables](/Users/koladev/ritza/simpletechguides.com/comparisons/assets/vercel-database-variables.png)
+![Vercel database variables](./assets/vercel-database-variables.png)
 
 #### Configuring the Project
 
@@ -155,7 +155,7 @@ Railway's deployment is similar to Vercel's, but with key differences in project
 
 Railway runs Docker containers, so you can deploy databases, workers, and multiple services, not just web applications.
 
-![Railway project dashboard](/Users/koladev/ritza/simpletechguides.com/comparisons/assets/railway-project-dashboard.png)
+![Railway project dashboard](./assets/railway-project-dashboard.png)
 
 After importing your GitHub project, Railway builds and deploys using your Dockerfile. Here's the Dockerfile we used:
 
@@ -223,17 +223,17 @@ The first build takes around 75 seconds – longer than Vercel's 15 seconds beca
 
 Adding a database works like adding any service in Railway. Click "New" and select from PostgreSQL, MySQL, Redis, or MongoDB. We chose PostgreSQL, which deployed in 3 seconds.
 
-![Railway add database](/Users/koladev/ritza/simpletechguides.com/comparisons/assets/railway-add-database.png)
+![Railway add database](./assets/railway-add-database.png)
 
 Once the database service is running, navigate to the Variables tab in your Express service. Railway prompts you to add database variables and lists all environment variables from the database service. We selected `DATABASE_URL`, which Railway automatically injects into the Express container, connecting both services over Railway's private network.
 
-![Railway database variables](/Users/koladev/ritza/simpletechguides.com/comparisons/assets/railway-database-variables.png)
+![Railway database variables](./assets/railway-database-variables.png)
 
 #### Get Your Application Link
 
 To access your deployed application, navigate to **Settings → Networking**, then either generate a Railway-provided URL or add a custom domain.
 
-![Railway networking settings](/Users/koladev/ritza/simpletechguides.com/comparisons/assets/railway-networking-settings.png)
+![Railway networking settings](./assets/railway-networking-settings.png)
 
 ### Deployment Challenges
 
@@ -314,11 +314,11 @@ Railway's dashboard shows real-time metrics for your services:
 - Error rates by service.
 - Deployment history.
 
-![Railway monitoring dashboard](/Users/koladev/ritza/simpletechguides.com/comparisons/assets/railway-monitoring-dashboard.png)
+![Railway monitoring dashboard](./assets/railway-monitoring-dashboard.png)
 
 The Logs page live-tails your application output with a search and filtering text input. Log retention is 7 days on Hobby, 30 days on Pro, and 90 days on Enterprise.
 
-![Live tail](/Users/koladev/ritza/simpletechguides.com/comparisons/assets/railway-live-tail-logs.png)
+![Live tail](./assets/railway-live-tail-logs.png)
 
 Railway's dashboards give you enough information to spot resource bottlenecks and catch errors, but don't provide request-level tracing or performance breakdowns.
 
@@ -332,7 +332,7 @@ Vercel's Logs page offers more filtering options:
 - Filter by specific function or route. 
 - Filter by resource, host, request type, request path. 
 
-![Vercel logs filtering](/Users/koladev/ritza/simpletechguides.com/comparisons/assets/vercel-logs-filtering.png)
+![Vercel logs filtering](./assets/vercel-logs-filtering.png)
 
 The Observability page adds deeper insights:
 
@@ -346,7 +346,7 @@ The Observability page adds deeper insights:
 
 - Custom alerts for errors or performance thresholds.
 
-![Vercel observability page](/Users/koladev/ritza/simpletechguides.com/comparisons/assets/vercel-observability-page.png)
+![Vercel observability page](./assets/vercel-observability-page.png)
 
 Vercel's observability helps you diagnose performance issues at the request level, identifying which API routes are slow, where cold starts impact users, and how middleware affects response times.
 
