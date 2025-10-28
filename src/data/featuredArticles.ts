@@ -16,7 +16,7 @@ export const featuredArticles: Article[] = [
     author: 'Simple Tech Guides',
     date: 'Oct 21, 2025',
     category: 'Comparisons',
-    image: '/assets/cloudflare-rwsdk-real-time/redwood-cf.png',
+    image: '/redwood-cloudflare.jpg',
     link: '/comparisons/cloudflare-workers-vs-redwoodsdk-real-time-apps',
     featured: true,
   },
@@ -26,8 +26,17 @@ export const featuredArticles: Article[] = [
     author: 'Simple Tech Guides',
     date: 'Oct 17, 2025',
     category: 'Comparisons',
-    image: '/img/comparisons/serp-api/serpcover.png',
+    image: '/serpapi.jpg',
     link: '/comparisons/best-serp-api-comparison-serpapi-exa-tavily',
+  },
+  {
+    title: 'Railway vs Vercel for Full-Stack Applications',
+    description: 'Compare Railway and Vercel for deploying full-stack applications. Learn about their features, pricing, and which platform suits your needs.',
+    author: 'Simple Tech Guides',
+    date: 'Oct 28, 2025',
+    category: 'Comparisons',
+    image: '/railway-vercel.jpg',
+    link: '/comparisons/vercel-vs-railway',
   },
 ];
 

@@ -12,22 +12,24 @@ function ArticleCard({article, featured = false}) {
   return (
     <article className={clsx(styles.articleCard, featured && styles.featuredCard)}>
       <Link to={article.link} className={styles.articleLink}>
-        {article.image && (
-          <div className={styles.articleImage}>
-            <img src={article.image} alt={article.title} />
-          </div>
-        )}
-        <div className={styles.articleContent}>
-          <div className={styles.articleMeta}>
-            <span className={styles.category}>{article.category}</span>
-            <span className={styles.date}>{article.date}</span>
-          </div>
-          <Heading as="h2" className={styles.articleTitle}>
-            {article.title}
-          </Heading>
-          <p className={styles.articleDescription}>{article.description}</p>
-          <div className={styles.articleFooter}>
-            <span className={styles.author}>{article.author}</span>
+        <div className={styles.cardInner}>
+          {article.image && (
+            <div className={styles.articleImage}>
+              <img src={article.image} alt={article.title} />
+            </div>
+          )}
+          <div className={styles.articleContent}>
+            <div className={styles.articleMeta}>
+              <span className={styles.category}>{article.category}</span>
+              <span className={styles.date}>{article.date}</span>
+            </div>
+            <Heading as="h2" className={styles.articleTitle}>
+              {article.title}
+            </Heading>
+            <p className={styles.articleDescription}>{article.description}</p>
+            <div className={styles.articleFooter}>
+              <span className={styles.author}>{article.author}</span>
+            </div>
           </div>
         </div>
       </Link>
@@ -36,23 +38,13 @@ function ArticleCard({article, featured = false}) {
 }
 
 function FeaturedSection() {
-  const featured = featuredArticles.find(a => a.featured);
-  const mainArticles = featuredArticles.filter(a => !a.featured).slice(0, 3);
-
   return (
     <section className={styles.featuredSection}>
       <div className="container">
         <div className={styles.featuredGrid}>
-          {featured && (
-            <div className={styles.featuredMain}>
-              <ArticleCard article={featured} featured={true} />
-            </div>
-          )}
-          <div className={styles.featuredSidebar}>
-            {mainArticles.map((article, idx) => (
-              <ArticleCard key={idx} article={article} />
-            ))}
-          </div>
+          {featuredArticles.map((article, idx) => (
+            <ArticleCard key={idx} article={article} />
+          ))}
         </div>
       </div>
     </section>
