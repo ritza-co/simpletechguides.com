@@ -14,6 +14,8 @@ Both platforms deploy web applications, but they're built for different use case
 
 This guide compares architecture, pricing, developer experience, performance, security, and migration to help you choose the platform that best fits your project.
 
+<!--truncate-->
+
 ## Quick Decision Framework
 
 Vercel and Railway solve different problems. Vercel optimizes for frontend deployments with serverless APIs, while Railway handles full-stack applications that need persistent processes. Here's how to choose which service to use in case you want to deploy an application:

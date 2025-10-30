@@ -14,6 +14,8 @@ Both platforms deploy web applications, but their architectures enable different
 
 This guide compares architecture, pricing, developer experience, performance, security, and migration to help you choose the platform that best fits your project.
 
+<!--truncate-->
+
 ## Quick Decision Framework
 
 Vercel and Render solve different problems. Vercel optimizes for frontend deployments with serverless APIs, while Render handles full-stack applications with native support for background workers and scheduled tasks. Here's how to choose which service to use when deploying an application:

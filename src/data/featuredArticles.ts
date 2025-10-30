@@ -38,6 +38,15 @@ export const featuredArticles: Article[] = [
     image: '/railway-vercel.jpg',
     link: '/comparisons/vercel-vs-railway',
   },
+  {
+    title: 'Vercel vs Render',
+    description: 'Complete comparison of Vercel and Render for deploying full-stack applications—architecture, pricing, developer experience, and migration.',
+    author: 'Simple Tech Guides',
+    date: 'Oct 30, 2025',
+    category: 'Comparisons',
+    image: '/vercel-vs-render.jpg',
+    link: '/comparisons/vercel-vs-render',
+  },
 ];
 
 export const recentArticles: Article[] = [];

@@ -110,16 +110,9 @@ const config: Config = {
       title: 'Simple Tech Guides',
       logo: {
         alt: 'Simple Tech Guides Logo',
-        src: 'img/logo.svg',
+        src: 'img/logo.png',
       },
       items: [
-        {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
-          position: 'left',
-          label: 'Guides',
-        },
-        {to: '/articles', label: 'Articles', position: 'left'},
         {to: '/comparisons', label: 'Comparisons', position: 'left'},
       ],
     },
