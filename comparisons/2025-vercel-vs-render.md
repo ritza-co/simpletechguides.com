@@ -393,7 +393,7 @@ Here are some migration scenarios:
 
 - **Vercel → Render:** 1-4 weeks for a medium application. It will require refactoring serverless functions into traditional HTTP handlers, replacing Vercel APIs, and rearchitecting features like ISR. The upside: background tasks you outsourced (because Vercel can't handle them) move to Render's native workers, simplifying your stack.
 - **Render → Vercel:** It's difficult if you use background workers, cron jobs, WebSockets, or tasks longer than 13 minutes. You'd need external services (queues, job runners, WebSocket proxies) to replace Render's built-in capabilities. This is moving backward in capability.
-- **Render → Traditional Hosting:** It would take days or hours. Render's architecture mirrors Heroku's, which in turn mirrors standard server deployments. Your web service becomes an `npm start` command on a VPS. Background workers become systemd services or PM2 processes. Managed PostgreSQL exports to any Postgres provider. The deployment model is conventional—no platform-specific abstractions to unwind.
+- **Render → Traditional Hosting:** It would take days or hours. Render's architecture mirrors Heroku's, which in turn mirrors standard server deployments. Your web service becomes an `npm start` command on a VPS. Background workers become systemd services or PM2 processes. Managed PostgreSQL exports to any Postgres provider. The deployment model is conventional: no platform-specific abstractions to unwind.
 
 #### The Next.js Factor
 
@@ -405,7 +405,7 @@ Deploying Next.js to Render means losing these features or implementing workarou
 
 Render's Heroku-like architecture means you're building with standard patterns from day one. Web services are HTTP servers. Workers are background processes. Databases are Postgres instances. Nothing requires Render-specific code or architectural compromises.
 
-Vercel's serverless model is seductive for frontend apps—zero configuration, automatic scaling, global edge. But every platform-specific feature (Edge Functions, ISR, Middleware) increases migration cost. For full-stack applications needing background processing, Render's conventional architecture removes the risk of painting yourself into a serverless corner.
+Vercel's serverless model is seductive for frontend apps due to zero configuration, automatic scaling, and global edge. But every platform-specific feature (Edge Functions, ISR, Middleware) increases migration cost. For full-stack applications needing background processing, Render's conventional architecture removes the risk of painting yourself into a serverless corner.
 
 ## Developer Experience
 
@@ -439,7 +439,7 @@ Render auto-detects common frameworks (Node.js, Python, Ruby, Go) and automatica
 
 **CLI Tools And Local Development**
 
-Render CLI focuses on deployment management and log streaming. Unlike Vercel, Render doesn't abstract your application architecture—you're running a standard web server locally and in production. Your local `npm start` or `python app.py` behaves identically to production because Render doesn't impose serverless constraints.
+Render CLI focuses on deployment management and log streaming. Unlike Vercel, Render doesn't abstract your application architecture: you're running a standard web server locally and in production. Your local `npm start` or `python app.py` behaves identically to production because Render doesn't impose serverless constraints.
 
 For debugging, `render logs -f` streams real-time logs, but you're limited by log retention (7 days on Hobby, 14 days on Professional). Environment variables can be synced through the dashboard or the CLI.
 
