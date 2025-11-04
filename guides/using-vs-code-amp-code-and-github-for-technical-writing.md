@@ -12,8 +12,10 @@ image: /img/comparisons/serp-api/serpcover.png
 
 Congratulations, you've booted up your MacBook and you're excited to do some technical writing. This guide will show you how to configure a basic environment with: VS Code — for editing Markdown files and creating code examples, GitHub — for storing files and tracking changes, and AMP Code — for that sweet AI Overlord oversight. This guide does not require the reader to have any prior knowledge of these tools.
 
+<!--truncate-->
+
 ### VS Code
-Microsoft's VS Code is a powerful [IDE](https://en.wikipedia.org/wiki/Integrated_development_environment). But, what's really nice about it is that it installs as more of an advanced text editor and all its extended functionality, like support for various programming languages, is added optionally by the user using [extensions](). This allows it to be relatively lightweight compared to other mainstream IDEs.
+Microsoft's VS Code is a powerful [IDE](https://en.wikipedia.org/wiki/Integrated_development_environment). But, what's really nice about it is that it installs as more of an advanced text editor and all its extended functionality, like support for various programming languages, is added optionally by the user using [extensions](https://code.visualstudio.com/docs/editor/extension-marketplace). This allows it to be relatively lightweight compared to other mainstream IDEs.
 
 To install VS Code on Mac, head to [this link](https://code.visualstudio.com/docs/?dv=darwinarm64). This should automatically start the download for the [ARM64](https://en.wikipedia.org/wiki/AArch64) package that can run natively on Apple Silicon chips. It will download as a .zip file containing the VS Code application. Once extracted, it can be dragged to the Applications folder and the installation is complete.
 ![Installing VS Code (bad quality?)](../static/img/guides/using-vs-code-amp-code-and-github-for-technical-writing/InstallVSCode.gif) 
@@ -31,9 +33,9 @@ To get started, [click here](https://github.com/signup) to create a GitHub accou
 
 #### Git
 
-To get started with Git — provided that you are on mac OS Mavericks (10.9) or above — type: `git` into the terminal and hit enter. This will prompt you to install the necessary development tools.
+To get started with Git — provided that you are on macOS Mavericks (10.9) or above — type: `git` into the terminal and hit enter. This will prompt you to install the necessary development tools.
 
-In order to access GitHub repositories using Git you will need to link your local Git instance to your online GitHub account. The most robust way to do this is by creating an [SSH key pair](https://www.sectigo.com/resource-library/what-is-an-ssh-key). GitHub already provides a [detailed guide](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) on how to create an add SSH keys, so this guide will provide the basic steps presented as simply as possible.
+In order to access GitHub repositories using Git you will need to link your local Git instance to your online GitHub account. The most robust way to do this is by creating an [SSH key pair](https://www.sectigo.com/resource-library/what-is-an-ssh-key). GitHub already provides a [detailed guide](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) on how to create and add SSH keys, so this guide will provide the basic steps presented as simply as possible.
 
 * Generate the key pair by running the following command in the Terminal: `ssh-keygen -t ed25519 -C "your_email@example.com"`.
    * Replace "your_email@example.com" with the email that is associated with your GitHub account.
@@ -49,7 +51,7 @@ In order to access GitHub repositories using Git you will need to link your loca
       UseKeychain yes
       IdentityFile ~/.ssh/id_ed25519
    ```
-* Add your private SSH key to the ssh agent with: `ssh-add --apple-use-keychain ~/.ssh/id_ed25519`. This will also cause your passphrase to be stored on your Apple key chain so you won't have to enter it every time you want to use it.
+* Add your private SSH key to the ssh agent with: `ssh-add --apple-use-keychain ~/.ssh/id_ed25519`. This will also cause your passphrase to be stored on your Apple keychain so you won't have to enter it every time you want to use it.
 
 This takes care of your private key. Next, you will need to add your public key to your GitHub profile:
 * Copy your public key to your clipboard by running: `$ pbcopy < ~/.ssh/id_ed25519.pub`.
@@ -72,7 +74,7 @@ Git can be as simple or as powerful as you need it to be and a cheat-sheet for a
 
 * Open VS Code and navigate to `File -> Open Folder...` and select the folder that you created with `git clone`.
 
-* Right-click on the folder in VS code, press `New File...`, and add a descriptive name for your file. End it with the file extension `.md`.
+* Right-click on the folder in VS Code, press `New File...`, and add a descriptive name for your file. End it with the file extension `.md`.
 
 * Click the new file to open it in VS Code and get to writing.
 
