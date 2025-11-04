@@ -11,6 +11,16 @@ export interface Article {
 
 export const featuredArticles: Article[] = [
   {
+    title: 'Using VS Code, GitHub, and AMP Code for technical writing on macOS',
+    description: 'A step-by-step guide on how to set up VS Code, GitHub, and AMP Code for technical writing on macOS.',
+    author: 'Simple Tech Guides',
+    date: 'Nov 4, 2025',
+    category: 'Guides',
+    image: '/techwriting.jpg',
+    link: '/guides/vs-amp-code-set-up-guide',
+    featured: true,
+  },
+  {
     title: 'Building Real-Time Apps with Cloudflare Workers and RedwoodSDK',
     description: 'Compare building real-time polling applications with Cloudflare Workers and RedwoodSDK. See the differences in development experience, code patterns, and deployment.',
     author: 'Simple Tech Guides',
