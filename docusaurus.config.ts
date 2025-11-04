@@ -98,6 +98,22 @@ const config: Config = {
         onUntruncatedBlogPosts: 'warn',
       },
     ],
+    [
+      '@docusaurus/plugin-content-blog',
+      {
+        id: 'guides',
+        routeBasePath: 'guides',
+        path: './guides',
+        blogTitle: 'Guides',
+        blogDescription: 'Guides',
+        blogSidebarTitle: 'All Guides',
+        blogSidebarCount: 1,
+        showReadingTime: true,
+        onInlineTags: 'warn',
+        onInlineAuthors: 'warn',
+        onUntruncatedBlogPosts: 'warn',
+      },
+    ],
   ],
 
   themeConfig: {
@@ -114,6 +130,7 @@ const config: Config = {
       },
       items: [
         {to: '/comparisons', label: 'Comparisons', position: 'left'},
+        {to: '/guides', label: 'Guides', position: 'left'},
       ],
     },
     footer: {
