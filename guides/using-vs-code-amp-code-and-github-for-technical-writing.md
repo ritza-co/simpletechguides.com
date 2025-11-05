@@ -5,7 +5,7 @@ description: A step-by-step guide on how to set up VS Code, GitHub, and AMP Code
 authors: [simpletechguides]
 tags: [vs code, amp code, github, technical writing, macos]
 keywords: [vs code, amp code, github, technical writing, macos]
-image: /img/comparisons/serp-api/serpcover.png
+image: /static/techwriting.jpg
 ---
 
 # Using VS Code, GitHub, and AMP Code for technical writing on macOS
