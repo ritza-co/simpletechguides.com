@@ -55,10 +55,7 @@ const config: Config = {
     [
       'classic',
       {
-        docs: {
-          sidebarPath: './sidebars.ts',
-          routeBasePath: 'guides',
-        },
+        docs: false, // Disable docs since we're using blog plugins for guides
         blog: {
           showReadingTime: true,
           feedOptions: {
@@ -107,7 +104,7 @@ const config: Config = {
         blogTitle: 'Guides',
         blogDescription: 'Guides',
         blogSidebarTitle: 'All Guides',
-        blogSidebarCount: 1,
+        blogSidebarCount: 0, // Hide sidebar to match comparisons
         showReadingTime: true,
         onInlineTags: 'warn',
         onInlineAuthors: 'warn',
