@@ -5,7 +5,7 @@ description: A step-by-step guide on how to set up VS Code, GitHub, and AMP Code
 authors: [simpletechguides]
 tags: [vs code, amp code, github, technical writing, macos]
 keywords: [vs code, amp code, github, technical writing, macos]
-image: /static/techwriting.jpg
+image: /img/guides/using-vs-code-amp-code-and-github-for-technical-writing/cover.png
 ---
 
 # Using VS Code, GitHub, and AMP Code for technical writing on macOS
@@ -18,12 +18,12 @@ Congratulations, you've booted up your MacBook and you're excited to do some tec
 Microsoft's VS Code is a powerful [IDE](https://en.wikipedia.org/wiki/Integrated_development_environment). But, what's really nice about it is that it installs as more of an advanced text editor and all its extended functionality, like support for various programming languages, is added optionally by the user using [extensions](https://code.visualstudio.com/docs/editor/extension-marketplace). This allows it to be relatively lightweight compared to other mainstream IDEs.
 
 To install VS Code on Mac, head to [this link](https://code.visualstudio.com/docs/?dv=darwinarm64). This should automatically start the download for the [ARM64](https://en.wikipedia.org/wiki/AArch64) package that can run natively on Apple Silicon chips. It will download as a .zip file containing the VS Code application. Once extracted, it can be dragged to the Applications folder and the installation is complete.
-![Installing VS Code (bad quality?)](../static/img/guides/using-vs-code-amp-code-and-github-for-technical-writing/InstallVSCode.gif) 
+![Installing VS Code (bad quality?)](/img/guides/using-vs-code-amp-code-and-github-for-technical-writing/InstallVSCode.gif)
 
-Now that VS Code is installed, you are ready to start editing [Markdown](https://www.markdownguide.org/getting-started/) documents. To get started, create or open a file with the file extension: `.md`. For a heading, you can start a new line with a `#` symbol and then type your heading. For example, `# My new blog`. You can then continue writing, enjoying the simplicity of [Markdown syntax](https://www.markdownguide.org/cheat-sheet/). 
+Now that VS Code is installed, you are ready to start editing [Markdown](https://www.markdownguide.org/getting-started/) documents. To get started, create or open a file with the file extension: `.md`. For a heading, you can start a new line with a `#` symbol and then type your heading. For example, `# My new blog`. You can then continue writing, enjoying the simplicity of [Markdown syntax](https://www.markdownguide.org/cheat-sheet/).
 
 If you would like to preview a render of your final product, you can hit `CMD + K V` or press the preview button at the top right of the window.
-![Preview Button](../static/img/guides/using-vs-code-amp-code-and-github-for-technical-writing/markdownviewer.png)
+![Preview Button](/img/guides/using-vs-code-amp-code-and-github-for-technical-writing/markdownviewer.png)
 
 ### GitHub
 
@@ -116,7 +116,7 @@ You can then start an instance by running: `amp` in the terminal. This will star
 
 Once it has launched, press `/` and type `free`; then select `mode: use free` from the provided options by hitting `Enter`.
 
-![launch-amp](../static/img/guides/using-vs-code-amp-code-and-github-for-technical-writing/launch-amp.gif)
+![launch-amp](/img/guides/using-vs-code-amp-code-and-github-for-technical-writing/launch-amp.gif)
 
 #### AMP Code VS Code Extension
 

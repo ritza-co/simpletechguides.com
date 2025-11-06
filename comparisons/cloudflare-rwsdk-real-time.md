@@ -5,7 +5,7 @@ description: Compare building real-time polling applications with Cloudflare Wor
 authors: [simpletechguides]
 tags: [cloudflare, redwoodsdk, real-time, workers, comparison]
 keywords: [cloudflare workers, redwoodsdk, real-time apps, durable objects, websockets, edge computing]
-image: /assets/cloudflare-rwsdk-real-time/redwood-cf.png
+image: /img/comparisons/cloudflare-rwsdk-real-time/cover.png
 ---
 
 # Building Real-Time Apps with Cloudflare Workers and RedwoodSDK

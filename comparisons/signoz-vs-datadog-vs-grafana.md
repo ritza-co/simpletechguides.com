@@ -5,6 +5,7 @@ description: "A beginner's guide to Kubernetes monitoring, comparing SigNoz, Dat
 authors: [simpletechguides]
 tags: [kubernetes, monitoring, signoz, datadog, grafana, observability, comparison, devops]
 keywords: [kubernetes monitoring, signoz vs datadog, datadog vs grafana, signoz vs grafana, observability tools, kubernetes observability, monitoring for beginners, signoz review, datadog review, grafana review]
+image: /img/comparisons/signoz-datadog-grafana/cover.png
 ---
 
 # A Noob's Guide to Kubernetes Monitoring: SigNoz vs DataDog vs Grafana
