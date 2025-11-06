@@ -6,7 +6,7 @@ description: Learn how to create timelines in Excel, Word, PowerPoint, Google Sh
 authors: [simpletechguides]
 tags: [timeline, excel, powerpoint, word, google-sheets, preceden, javascript, bryntum, project-management, visualization]
 keywords: [how to create a timeline, make a timeline, timeline in excel, timeline in powerpoint, timeline in word, google sheets timeline, preceden timeline, javascript timeline, timeline chart, timeline graph, bryntum scheduler, smartart timeline, timeline vs gantt]
-image: /img/comparisons/how-to-create-timeline/cover.png
+image: /img/guides/how-to-create-timeline/cover.png
 ---
 
 A timeline visualizes events chronologically, making it easier to understand project progress, historical sequences, or future plans. Whether you're tracking project milestones, creating a presentation, or documenting company history, you need the right tool to build your timeline.
@@ -30,7 +30,7 @@ Timelines and Gantt charts both visualize events over time, but they serve diffe
 
 A timeline is a linear visualization that shows events in chronological order.
 
-![Timeline example](/img/comparisons/how-to-create-timeline/timeline-example.png)
+![Timeline example](/img/guides/how-to-create-timeline/timeline-example.png)
 
 Timelines focus on dates and milestones, making them ideal for:
 
@@ -44,7 +44,7 @@ A timeline answers the question: **What happened when?**
 
 A Gantt chart shows when events happen, how long they take, and how they relate to each other.
 
-![Gantt chart example](/img/comparisons/how-to-create-timeline/gantt-chart-example.png)
+![Gantt chart example](/img/guides/how-to-create-timeline/gantt-chart-example.png)
 
 Gantt charts display:
 
@@ -74,13 +74,13 @@ On the Excel application, follow these steps:
 3. Then select "Process". You will see many options to describe a process, a timeline. 
 4. Choose the one that works for you, but for this tutorial, we will use the first one, "Basic process".
 
-![Excel SmartArt insert process](/img/comparisons/how-to-create-timeline/excel-smartart-insert-process.png)
+![Excel SmartArt insert process](/img/guides/how-to-create-timeline/excel-smartart-insert-process.png)
 
 ### Step 2: Add Your Events
 
 Excel displays a timeline with placeholder text. Click each text box and type your event name and date.
 
-![Excel timeline with events](/img/comparisons/how-to-create-timeline/excel-timeline-with-events.png)
+![Excel timeline with events](/img/guides/how-to-create-timeline/excel-timeline-with-events.png)
 
 To add more events, you can use the SmartArt text utility, by typing on the "Enter" button for a new line, or the "+" button. A new item will appear on the right of your timeline.
 
@@ -102,13 +102,13 @@ For detailed formatting, select individual text boxes and use the Format tab to 
    3. Select "Process" from the left panel. You'll see various process diagrams, including timeline options.
    4. Select the timeline style you prefer. For this guide, we'll use "Basic Process".
 
-![PowerPoint SmartArt insert process](/img/comparisons/how-to-create-timeline/powerpoint-smartart-insert-process.png)
+![PowerPoint SmartArt insert process](/img/guides/how-to-create-timeline/powerpoint-smartart-insert-process.png)
 
 ### Step 2: Add Your Events
 
 A timeline graphic will appear with text placeholders. Click on each text box and type your event information. 
 
-![PowerPoint timeline with events](/img/comparisons/how-to-create-timeline/powerpoint-timeline-with-events.png)
+![PowerPoint timeline with events](/img/guides/how-to-create-timeline/powerpoint-timeline-with-events.png)
 
 To add more events, you can use the SmartArt text utility by typing on the "Enter" button for a new line or the "+" button.
 
@@ -131,13 +131,13 @@ On the Word application, follow these steps:
 3. Then select "Process". You will see many options to describe a process, including timeline layouts.
 4. Choose the one that works for you, but for this tutorial, we will use "Basic process".
 
-![Word SmartArt insert process](/img/comparisons/how-to-create-timeline/word-smartart-insert-process.png)
+![Word SmartArt insert process](/img/guides/how-to-create-timeline/word-smartart-insert-process.png)
 
 ### Step 2: Add Your Events
 
 A timeline graphic will appear with text placeholders. Click on each text box and type your event information - include both the event name and date.
 
-![Word timeline with events](/img/comparisons/how-to-create-timeline/word-timeline-with-events.png)
+![Word timeline with events](/img/guides/how-to-create-timeline/word-timeline-with-events.png)
 
 To add more events, click the SmartArt border, then click the SmartArt Design tab > Add Shape. New boxes appear on your timeline.
 
@@ -168,7 +168,7 @@ Testing,6/15/2025,7/1/2025,QA and bug fixes
 Launch,7/15/2025,7/15/2025,Product launch
 ```
 
-![Google Sheets data setup](/img/comparisons/how-to-create-timeline/google-sheets-data-setup.png)
+![Google Sheets data setup](/img/guides/how-to-create-timeline/google-sheets-data-setup.png)
 
 Enter your dates in a standard format like 1/15/2025 or 01/15/2025. Google Sheets recognizes these as dates automatically and right-aligns them in the cells.
 
@@ -179,17 +179,17 @@ In your Google Sheet, follow these steps:
 1. Go to the Insert menu.
 2. Click Timeline.
 
-![Google Sheets insert timeline menu](/img/comparisons/how-to-create-timeline/google-sheets-insert-timeline-menu.png)
+![Google Sheets insert timeline menu](/img/guides/how-to-create-timeline/google-sheets-insert-timeline-menu.png)
 
 3. Select your data range, including all columns with headers.
 
-   ![Google Sheets select data range](/img/comparisons/how-to-create-timeline/google-sheets-select-data-range.png)
+   ![Google Sheets select data range](/img/guides/how-to-create-timeline/google-sheets-select-data-range.png)
 
 4. Click Ok after validating the selection.
 
 Google Sheets creates an interactive timeline view showing your tasks as cards on a horizontal timeline.
 
-![Google Sheets timeline result](/img/comparisons/how-to-create-timeline/google-sheets-timeline-result.png)
+![Google Sheets timeline result](/img/guides/how-to-create-timeline/google-sheets-timeline-result.png)
 
 On the right panel, you can customize the timeline by modifying the card title, the card color, or the display. 
 
@@ -210,7 +210,7 @@ Google Docs doesn't support embedding timelines directly from Google Sheets. To 
 
 Visit [preceden.com](https://www.preceden.com) and sign up for an account. On the dashboard, click the "+Create Manually" button.
 
-![Preceden create timeline](/img/comparisons/how-to-create-timeline/preceden-create-timeline.png)
+![Preceden create timeline](/img/guides/how-to-create-timeline/preceden-create-timeline.png)
 
 Enter a name for your timeline and click "Create Timeline →".
 
@@ -218,7 +218,7 @@ Enter a name for your timeline and click "Create Timeline →".
 
 Preceden displays your blank timeline. Click the "+ Add Event" button.
 
-![Preceden add event button](/img/comparisons/how-to-create-timeline/preceden-add-event-button.png)
+![Preceden add event button](/img/guides/how-to-create-timeline/preceden-add-event-button.png)
 
 Enter your event details, such as:
 
@@ -226,11 +226,11 @@ Enter your event details, such as:
 - Start date.
 - End date (optional for milestone events).
 
-![Preceden event details form](/img/comparisons/how-to-create-timeline/preceden-event-details-form.png)
+![Preceden event details form](/img/guides/how-to-create-timeline/preceden-event-details-form.png)
 
 Click Save. Your event appears on the timeline immediately.
 
-![Preceden timeline result](/img/comparisons/how-to-create-timeline/preceden-timeline-result.png)
+![Preceden timeline result](/img/guides/how-to-create-timeline/preceden-timeline-result.png)
 
 Repeat this process to add more events. Alternatively, click "Bulk Add" to enter multiple events at once using a spreadsheet-style interface.
 
@@ -238,7 +238,7 @@ Repeat this process to add more events. Alternatively, click "Bulk Add" to enter
 
 Preceden allows you to export the timeline in many formats, such as PDF or Images, or embed it if you need to display the chart on a website. 
 
-![Preceden export options](/img/comparisons/how-to-create-timeline/preceden-export-options.png)
+![Preceden export options](/img/guides/how-to-create-timeline/preceden-export-options.png)
 
 ## How to Create a Timeline in JavaScript
 
@@ -389,7 +389,7 @@ const scheduler = new Scheduler({
 
 Open `index.html` in a web browser. 
 
-![Bryntum timeline result](/img/comparisons/how-to-create-timeline/bryntum-timeline-result.png)
+![Bryntum timeline result](/img/guides/how-to-create-timeline/bryntum-timeline-result.png)
 
 You'll see an interactive timeline where you can:
 
