@@ -50,15 +50,15 @@ For this guide, we followed the Kubernetes installation to monitor the clusters 
 
 1. You create a key; otherwise, you use an existing one, depending on your goals.
 
-   ![New Relic Create Key](assets/newrelic-create-key.png)
+   ![New Relic Create Key](/img/comparisons/dash0-honeycomb-newrelic/newrelic-create-key.png)
 
 2. You then configure the Kubernetes integration, where you can create a new cluster by choosing a name and configuring how your Kubernetes integration runs.
 
-   ![New Relic Kubernetes Configuration](assets/newrelic-kubernetes-config.png)
+   ![New Relic Kubernetes Configuration](/img/comparisons/dash0-honeycomb-newrelic/newrelic-kubernetes-config.png)
 
 3. You can enable a Prometheus agent to collect metrics from Prometheus endpoints exposed in the cluster (optional).
 
-   ![New Relic Prometheus Agent](assets/newrelic-prometheus-agent.png)
+   ![New Relic Prometheus Agent](/img/comparisons/dash0-honeycomb-newrelic/newrelic-prometheus-agent.png)
 
 4. You can enable eAPM administration. eAPM is a zero-instrumentation solution that automatically discovers all workloads within a Kubernetes cluster using eBPF (extended Berkeley Packet Filter) technology. eAPM is useful when you want complete Kubernetes observability without modifying application code or managing language-specific agents. (optional).
 
@@ -66,37 +66,37 @@ For this guide, we followed the Kubernetes installation to monitor the clusters 
 
 6. You configure how log data is gathered. You can forward all logs with full enrichment or forward all logs with minimal enrichment.
 
-   ![New Relic Log Forwarding Configuration](assets/newrelic-log-forwarding.png)
+   ![New Relic Log Forwarding Configuration](/img/comparisons/dash0-honeycomb-newrelic/newrelic-log-forwarding.png)
 
 7. New Relic provides a command snippet to install the Kubernetes integration.
 
-   ![New Relic Install Command](assets/newrelic-install-command.png)
+   ![New Relic Install Command](/img/comparisons/dash0-honeycomb-newrelic/newrelic-install-command.png)
 
 8. New Relic suggests configuring APM auto-instrumentation by providing a configuration file and the command to enable it. 
 
-   ![New Relic APM Auto-instrumentation](assets/newrelic-apm-auto-instrumentation.png)
+   ![New Relic APM Auto-instrumentation](/img/comparisons/dash0-honeycomb-newrelic/newrelic-apm-auto-instrumentation.png)
 
 9. You test the connection.
 
-   ![New Relic Connection Test](assets/newrelic-connection-test.png)
+   ![New Relic Connection Test](/img/comparisons/dash0-honeycomb-newrelic/newrelic-connection-test.png)
 
 If the connection is successful, you access your Kubernetes application dashboard by clicking the **See your data** button.
 
-![New Relic Kubernetes Dashboard](assets/newrelic-kubernetes-dashboard.png)
+![New Relic Kubernetes Dashboard](/img/comparisons/dash0-honeycomb-newrelic/newrelic-kubernetes-dashboard.png)
 
 ### Dash0
 
 Dash0 supports authentication via Google, Github, or email. After login, you configure the organization name and data storage region.
 
-![Dash0 Organization Setup](assets/dash0-organization-setup.png)
+![Dash0 Organization Setup](/img/comparisons/dash0-honeycomb-newrelic/dash0-organization-setup.png)
 
 Dash0 provides an integrations catalog and a Kubernetes operator. The Dash0 Kubernetes operator is the fastest installation method for Kubernetes applications.
 
-![Dash0 Integrations Catalog](assets/dash0-integrations-catalog.png)
+![Dash0 Integrations Catalog](/img/comparisons/dash0-honeycomb-newrelic/dash0-integrations-catalog.png)
 
  The setup page displays inline instructions with commands, structured like a mini tutorial:
 
-![Dash0 Setup Instructions](assets/dash0-setup-instructions.png)
+![Dash0 Setup Instructions](/img/comparisons/dash0-honeycomb-newrelic/dash0-setup-instructions.png)
 
 The installation steps are straightforward: 
 
@@ -104,7 +104,7 @@ The installation steps are straightforward:
 - You provide Dash0 with an authorization token.
 - You deploy the operator via Helm chart.
 
-![Dash0 Operator Deployment](assets/dash0-operator-deployment.png)
+![Dash0 Operator Deployment](/img/comparisons/dash0-honeycomb-newrelic/dash0-operator-deployment.png)
 
 You apply a `Dash0Monitoring` resource to enable monitoring for specific namespaces:
 
@@ -119,7 +119,7 @@ EOF
 
 Once the installation completes, you're automatically redirected to your instance's dashboard.
 
-![Dash0 Dashboard](assets/dash0-dashboard.png)
+![Dash0 Dashboard](/img/comparisons/dash0-honeycomb-newrelic/dash0-dashboard.png)
 
 Setup took approximately 5 minutes. The operator handles instrumentation automatically without modifying application code.
 
@@ -127,7 +127,7 @@ Setup took approximately 5 minutes. The operator handles instrumentation automat
 
 Honeycomb supports authentication via Google or email. After login, you configure telemetry endpoints manually using OpenTelemetry.
 
-![Honeycomb Login](assets/honeycomb-login.png)
+![Honeycomb Login](/img/comparisons/dash0-honeycomb-newrelic/honeycomb-login.png)
 
 1. You create a namespace and Kubernetes secret with your Honeycomb API key.
 2. You add the OpenTelemetry Helm repository.
@@ -136,7 +136,7 @@ Honeycomb supports authentication via Google or email. After login, you configur
 5. You create a Service that provides a stable DNS name (`otel-collector-agent.honeycomb.svc.cluster.local`) so applications can reach the collector without knowing pod IPs.
 6. You verify collectors are running in the dashboard, as you will directly be redirected to the Home page with data displayed. 
 
-![Honeycomb Collectors Verification](assets/honeycomb-collectors-verification.png)
+![Honeycomb Collectors Verification](/img/comparisons/dash0-honeycomb-newrelic/honeycomb-collectors-verification.png)
 
 Setup requires understanding OpenTelemetry architecture. No guided UI wizard is provided. Setup took approximately 20 minutes, requiring documentation consultation for collector configuration values and OTLP endpoint setup.
 
@@ -147,23 +147,23 @@ Each platform organizes telemetry data differently. New Relic groups data by ent
 
 New Relic's entity-centric model organizes all monitored components in one place. New Relic displays all monitored components from your application: services, hosts, containers, mobile applications, browser applications, Kubernetes clusters, and log collectors.
 
-![New Relic Entity View](assets/newrelic-entity-view.png)
+![New Relic Entity View](/img/comparisons/dash0-honeycomb-newrelic/newrelic-entity-view.png)
 
 #### Dashboard
 
 New Relic suggests pre-built dashboards based on your installed agents. You can select an existing dashboard or create your own.
 
-![New Relic Prebuilt Dashboards](assets/newrelic-prebuilt-dashboards.png)
+![New Relic Prebuilt Dashboards](/img/comparisons/dash0-honeycomb-newrelic/newrelic-prebuilt-dashboards.png)
 
 When selecting a pre-built dashboard, New Relic confirms agent installation and generates the dashboard immediately. For this comparison, we tested the Infrastructure dashboard, which populated in seconds.
 
-![New Relic Infrastructure Dashboard](assets/newrelic-infrastructure-dashboard.png)
+![New Relic Infrastructure Dashboard](/img/comparisons/dash0-honeycomb-newrelic/newrelic-infrastructure-dashboard.png)
 
 #### Infrastructure
 
 The Infrastructure view provides a global system overview with host metrics, container status, and cluster health.
 
-![New Relic Infrastructure View](assets/newrelic-infrastructure-view.png)
+![New Relic Infrastructure View](/img/comparisons/dash0-honeycomb-newrelic/newrelic-infrastructure-view.png)
 
 ### Dash0
 Dash0 organizes telemetry into separate views for each signal type.
@@ -173,16 +173,16 @@ Dash0 organizes telemetry into separate views for each signal type.
 Dash0 supports logging, metrics, tracing, and web events.
 On the logging page, you have access to all recent logs refreshed every 2 seconds from your different pods and applications.
 
-![Dash0 Logging Page](assets/dash0-logging-page.png)
+![Dash0 Logging Page](/img/comparisons/dash0-honeycomb-newrelic/dash0-logging-page.png)
 
 Dash0 provides filtering options including service name, service namespace, and resource name.
 The metrics page tracks a high volume of data points. You might need a bigger screen to visualize the metrics comfortably due to the number of tracked items.
 
-![Dash0 Metrics Page](assets/dash0-metrics-page.png)
+![Dash0 Metrics Page](/img/comparisons/dash0-honeycomb-newrelic/dash0-metrics-page.png)
 
 On the tracing page, you choose the view or template for how you want to see the traces.
 
-![Dash0 Tracing Page](assets/dash0-tracing-page.png)
+![Dash0 Tracing Page](/img/comparisons/dash0-honeycomb-newrelic/dash0-tracing-page.png)
 
 By default, Dash0 suggests built-in filters and dashboards where you can filter HTTP requests, service requests, database queries, all traces and spans, gRPC requests, and generative AI monitoring if you're monitoring AI services.
 
@@ -192,27 +192,27 @@ Honeycomb centers on events and queries rather than pre-built entity views.
 
 Honeycomb provides a home dashboard where you can see traces with trace volume, span volume, error volume, span duration, and total spans by type.
 
-![Honeycomb Home Dashboard](assets/honeycomb-home-dashboard.png)
+![Honeycomb Home Dashboard](/img/comparisons/dash0-honeycomb-newrelic/honeycomb-home-dashboard.png)
 
 You have access to the logs table, where you can inspect the total number of logs, logs volume, top messages, and errors.
 
-![Honeycomb Logs Table](assets/honeycomb-logs-table.png)
+![Honeycomb Logs Table](/img/comparisons/dash0-honeycomb-newrelic/honeycomb-logs-table.png)
 
 The explore data tab allows you to navigate through all events. You have filters that are auto-detected, along with information on events.
 
-![Honeycomb Explore Data](assets/honeycomb-explore-data.png)
+![Honeycomb Explore Data](/img/comparisons/dash0-honeycomb-newrelic/honeycomb-explore-data.png)
 
 #### Queries
 
 Querying your data is central to working with Honeycomb. When you want to retrieve specific events and analyze them, Honeycomb allows you to define queries. The platform provides a query assistant where you type a message prompt that generates the query for you. This differs from New Relic's pre-built dashboards and Dash0's template-based filters.
 
-![Honeycomb Query Assistant](assets/honeycomb-query-assistant.png)
+![Honeycomb Query Assistant](/img/comparisons/dash0-honeycomb-newrelic/honeycomb-query-assistant.png)
 
 #### Dashboards
 
 Honeycomb provides a dashboard feature where you can create custom dashboards. The platform includes templates for common use cases. For this comparison, we used the service health template to monitor service health.
 
-![Honeycomb Dashboard Template](assets/honeycomb-dashboard-template.png)
+![Honeycomb Dashboard Template](/img/comparisons/dash0-honeycomb-newrelic/honeycomb-dashboard-template.png)
 
 #### Service Maps and SLOs
 Honeycomb provides SLOs and service maps to help visualize your services and understand your architecture. Service maps visualize service architecture, identify service dependencies, and analyze the services involved in specific requests. The map is generated from distributed traces using Honeycomb's Environments and Services data model. Service-level objectives (SLOs) allow you to define and monitor service-level reliability over time.
@@ -229,11 +229,11 @@ All three platforms provide alerting capabilities, but they differ in notificati
 
 New Relic allows you to set up alerts to get notified about resource usage spikes, issues, or errors.
 
-![New Relic Alerts Setup](assets/newrelic-alerts-setup.png)
+![New Relic Alerts Setup](/img/comparisons/dash0-honeycomb-newrelic/newrelic-alerts-setup.png)
 
 You can create custom alerts or use pre-built alert conditions. The integration list for alerts is extensive.
 
-![New Relic Alert Integrations](assets/newrelic-alert-integrations.png)
+![New Relic Alert Integrations](/img/comparisons/dash0-honeycomb-newrelic/newrelic-alert-integrations.png)
 
 New Relic supports notifications via email, Slack, Webhook, Mobile push, PagerDuty, Jira, ServiceNow, and AWS EventBridge. You can create flexible workflows to automatically filter, enrich, and route alert data to specific destinations. You can add muting rules to suppress metrics or issues you don't want to track, which is useful when processing thousands of events per minute.
 
@@ -243,13 +243,13 @@ Dash0 allows you to create alerts from templates or manually configure them for 
 
 Dash0 supports these notification destinations: All Quiet, BetterStack, Discord, email, Google Chat, ilert, incident.io, Jira, Opsgenie, PagerDuty, Slack, Teams, and webhooks for custom integrations.
 
-![Dash0 Notification Destinations](assets/dash0-notification-destinations.png)
+![Dash0 Notification Destinations](/img/comparisons/dash0-honeycomb-newrelic/dash0-notification-destinations.png)
 
 ### Honeycomb
 
 Honeycomb provides alerts that you can configure using existing templates or create your own.
 
-![Honeycomb Alert Templates](assets/honeycomb-alert-templates.png)
+![Honeycomb Alert Templates](/img/comparisons/dash0-honeycomb-newrelic/honeycomb-alert-templates.png)
 
 Honeycomb supports notification channels including Slack, GitHub App, and custom triggers for PagerDuty or webhooks. This is fewer options than New Relic and Dash0.
 
