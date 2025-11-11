@@ -22,6 +22,8 @@ This guide shows you how to create timelines using tools you likely already have
 
 Each section is self-contained, so you can jump directly to the tool you want to use. Before diving into the how-to sections, you'll learn the key differences between timelines and Gantt charts to choose the proper visualization for your needs.
 
+<!--truncate-->
+
 ## What Are the Differences Between a Timeline and a Gantt? 
 
 Timelines and Gantt charts both visualize events over time, but they serve different purposes. Understanding the difference helps you choose the right tool for your project.

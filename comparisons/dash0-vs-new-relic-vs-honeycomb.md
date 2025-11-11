@@ -16,6 +16,8 @@ This comparison evaluates [New Relic](https://newrelic.com/), [Honeycomb](https:
 
 You'll see how each platform handles Kubernetes setup, what daily usage actually feels like, and what you pay at different scales.
 
+<!--truncate-->
+
 ## The App We're Monitoring
 
 To test these platforms, you need an application that generates real telemetry data. A static website tells you nothing about how observability tools handle production complexity.

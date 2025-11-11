@@ -11,6 +11,16 @@ export interface Article {
 
 export const featuredArticles: Article[] = [
   {
+    title: 'How to Create a Timeline',
+    description: 'Learn how to create timelines in Excel, Word, PowerPoint, Google Sheets, Preceden, and JavaScript. Step-by-step guides with examples for each tool.',
+    author: 'Simple Tech Guides',
+    date: 'Nov 5, 2025',
+    category: 'Guides',
+    image: '/img/guides/how-to-create-timeline/cover.png',
+    link: '/guides/how-to-create-a-timeline',
+    featured: true,
+  },
+  {
     title: 'Using VS Code, GitHub, and AMP Code for technical writing on macOS',
     description: 'A step-by-step guide on how to set up VS Code, GitHub, and AMP Code for technical writing on macOS.',
     author: 'Simple Tech Guides',
@@ -18,6 +28,16 @@ export const featuredArticles: Article[] = [
     category: 'Guides',
     image: '/img/guides/using-vs-code-amp-code-and-github-for-technical-writing/cover.png',
     link: '/guides/vs-amp-code-set-up-guide',
+    featured: true,
+  },
+  {
+    title: 'Dash0 vs Honeycomb vs New Relic',
+    description: 'A practical comparison of Dash0, Honeycomb, and New Relic for Kubernetes monitoring, covering setup time, pricing models, and developer experience.',
+    author: 'Simple Tech Guides',
+    date: 'Nov 11, 2025',
+    category: 'Comparisons',
+    image: '/img/comparisons/dash0-honeycomb-newrelic/cover.png',
+    link: '/comparisons/dash0-vs-honeycomb-vs-new-relic',
     featured: true,
   },
   {
