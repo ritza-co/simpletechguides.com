@@ -56,21 +56,7 @@ const config: Config = {
       'classic',
       {
         docs: false, // Disable docs since we're using blog plugins for guides
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          routeBasePath: 'articles',
-          blogTitle: 'Tech Articles',
-          blogDescription: 'In-depth technical articles and guides',
-          blogSidebarTitle: 'Recent Articles',
-          blogSidebarCount: 10,
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
+        blog: false, // Disable default blog
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -139,10 +125,6 @@ const config: Config = {
             {
               label: 'Guides',
               to: '/guides',
-            },
-            {
-              label: 'Articles',
-              to: '/articles',
             },
             {
               label: 'Comparisons',
