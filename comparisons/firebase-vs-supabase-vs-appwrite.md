@@ -5,7 +5,7 @@ description: "Building a shopping list app on Firebase, Supabase, and Appwrite t
 authors: [simpletechguides]
 tags: [backend, firebase, supabase, appwrite, baas, comparison, real-time, authentication, database]
 keywords: [firebase vs supabase vs appwrite, baas comparison, backend as a service, firestore vs postgres, firebase security rules, supabase rls, appwrite permissions]
-image: /img/comparisons/signoz-datadog-grafana/cover.png
+image: /img/comparisons/firebase-supabase-appwrite/cover.jpg
 ---
 
 Most Firebase vs Supabase comparisons show you a signup form and a database insert. Then they declare a winner based on which syntax looks prettier.

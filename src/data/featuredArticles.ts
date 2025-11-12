@@ -41,6 +41,16 @@ export const featuredArticles: Article[] = [
     featured: true,
   },
   {
+    title: 'Firebase vs Supabase vs Appwrite: We Built the Same App Three Times',
+    description: 'Building a shopping list app on Firebase, Supabase, and Appwrite to compare setup experience, database models, security approaches, and developer tooling.',
+    author: 'Simple Tech Guides',
+    date: 'Nov 12, 2025',
+    category: 'Comparisons',
+    image: '/img/comparisons/firebase-supabase-appwrite/cover.jpg',
+    link: '/comparisons/firebase-vs-supabase-vs-appwrite',
+    featured: true,
+  },
+  {
     title: "A Noob's Guide to Kubernetes Monitoring: SigNoz vs DataDog vs Grafana",
     description: "A beginner's guide to Kubernetes monitoring, comparing SigNoz, DataDog, and Grafana for ease of setup, developer experience, and cost.",
     author: 'Simple Tech Guides',

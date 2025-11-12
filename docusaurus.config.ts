@@ -138,7 +138,7 @@ const config: Config = {
           items: [
             {
               label: 'Guides',
-              to: '/guides/intro',
+              to: '/guides',
             },
             {
               label: 'Articles',
