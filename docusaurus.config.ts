@@ -60,6 +60,9 @@ const config: Config = {
         theme: {
           customCss: './src/css/custom.css',
         },
+        sitemap: {
+          ignorePatterns: ['/tags/**', '/comparisons/tags/**', '/guides/tags/**'],
+        },
       } satisfies Preset.Options,
     ],
   ],
