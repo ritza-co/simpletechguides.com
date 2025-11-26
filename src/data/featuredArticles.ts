@@ -11,6 +11,16 @@ export interface Article {
 
 export const featuredArticles: Article[] = [
   {
+    title: 'Getting Started with Bruin',
+    description: 'Learn how to build a complete data pipeline with Bruin. Load CSV files, transform data with SQL, and create business analytics tables using this open-source ETL tool.',
+    author: 'Simple Tech Guides',
+    date: 'Nov 24, 2025',
+    category: 'Guides',
+    image: '/img/guides/getting-started-with-bruin/cover.png',
+    link: '/guides/getting-started-with-bruin',
+    featured: true,
+  },
+  {
     title: 'How to Create a Timeline',
     description: 'Learn how to create timelines in Excel, Word, PowerPoint, Google Sheets, Preceden, and JavaScript. Step-by-step guides with examples for each tool.',
     author: 'Simple Tech Guides',

@@ -30,6 +30,8 @@ By the end, you'll have four analytics tables:
 | `customer_metrics`     | "Who are our best customers?"     | Total spent, order count, segment          |
 | `category_performance` | "Which categories drive revenue?" | Category revenue, average order value      |
 
+<!--truncate-->
+
 ## Prerequisites
 
 To follow this guide, you'll need:
