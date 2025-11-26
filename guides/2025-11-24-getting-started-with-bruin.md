@@ -36,7 +36,7 @@ To follow this guide, you'll need:
 
 - [Docker and Docker Compose](https://docs.docker.com/get-docker/).
 
-The complete working project is available <https://github.com/ritza-co/getting-started-with-bruin>.
+The complete working project is available at https://github.com/ritza-co/getting-started-with-bruin.
 
 ## Our Data pipeline architecture
 
@@ -44,65 +44,7 @@ Before diving into code, understand what you're building. This pipeline follows 
 
 Think of it like a factory assembly line: raw materials (CSV files) enter, go through processing stations (cleaning, joining), and emerge as finished products (analytics tables).
 
-```mermaid
-graph TB
-    subgraph "Data Sources"
-        A[users.csv]
-        B[carts.csv]
-        C[products.csv]
-        D[categories.csv]
-    end
-    
-    subgraph "Ingestion Layer"
-        E[ingestion.users<br/>seed]
-        F[ingestion.carts<br/>seed]
-        G[ingestion.products<br/>seed]
-        H[ingestion.categories<br/>seed]
-    end
-    
-    subgraph "Staging Layer"
-        J[staging.products_cleaned<br/>table]
-        K[staging.cart_items<br/>table]
-    end
-    
-    subgraph "Analytics Layer"
-        L[analytics.daily_revenue<br/>table]
-        M[analytics.product_performance<br/>table]
-        N[analytics.customer_metrics<br/>table]
-        O[analytics.category_performance<br/>table]
-    end
-    
-    A --> E
-    B --> F
-    C --> G
-    D --> H
-    
-    G --> J
-    H --> J
-    F --> K
-    J --> K
-    
-    K --> L
-    K --> M
-    K --> N
-    K --> O
-    H --> O
-    
-    style A fill:#e1f5ff
-    style B fill:#e1f5ff
-    style C fill:#e1f5ff
-    style D fill:#e1f5ff
-    style E fill:#fff4e1
-    style F fill:#fff4e1
-    style G fill:#fff4e1
-    style H fill:#fff4e1
-    style J fill:#ffe1f5
-    style K fill:#ffe1f5
-    style L fill:#e1ffe1
-    style M fill:#e1ffe1
-    style N fill:#e1ffe1
-    style O fill:#e1ffe1
-```
+![Data pipeline architecture showing three layers: ingestion (CSV files), staging (data cleaning), and analytics (business metrics)](/img/guides/getting-started-with-bruin/data-pipeline-architecture.png)
 
 The pipeline has three layers:
 
@@ -136,34 +78,7 @@ depends:
 
 Bruin builds a dependency graph and executes assets in the correct order:
 
-```mermaid
-graph TB
-    A[ingestion.categories] --> B[ingestion.products]
-    B --> C[ingestion.carts]
-    C --> D[ingestion.users]
-    B --> E[staging.products_cleaned]
-    A --> E
-    C --> F[staging.cart_items]
-    E --> F
-    D --> G[analytics.customer_metrics]
-    F --> G
-    F --> H[analytics.daily_revenue]
-    F --> I[analytics.product_performance]
-    F --> J[analytics.category_performance]
-    E --> I
-    E --> J
-    
-    style A fill:#ffebee
-    style B fill:#ffebee
-    style C fill:#ffebee
-    style D fill:#ffebee
-    style E fill:#e1bee7
-    style F fill:#e1bee7
-    style G fill:#c5e1a5
-    style H fill:#c5e1a5
-    style I fill:#c5e1a5
-    style J fill:#c5e1a5
-```
+![Bruin dependency graph showing how assets depend on each other and execute in order](/img/guides/getting-started-with-bruin/bruin-dependency-graph.png)
 
 ## Project Setup
 
