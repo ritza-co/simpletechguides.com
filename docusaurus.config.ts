@@ -20,6 +20,9 @@ const config: Config = {
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
+  // Ensure all URLs have trailing slashes
+  trailingSlash: true,
+
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'simpletechguides', // Usually your GitHub org/user name.
@@ -60,9 +63,7 @@ const config: Config = {
         theme: {
           customCss: './src/css/custom.css',
         },
-        sitemap: {
-          ignorePatterns: ['/tags/**', '/comparisons/tags/**', '/guides/tags/**'],
-        },
+        sitemap: false, // Use manual sitemap in static/sitemap.xml
       } satisfies Preset.Options,
     ],
   ],
