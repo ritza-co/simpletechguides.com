@@ -17,7 +17,7 @@ export const featuredArticles: Article[] = [
     date: 'Nov 24, 2025',
     category: 'Guides',
     image: '/img/guides/getting-started-with-bruin/cover.png',
-    link: '/guides/getting-started-with-bruin',
+    link: '/guides/getting-started-with-bruin/',
     featured: true,
   },
   {
@@ -27,7 +27,7 @@ export const featuredArticles: Article[] = [
     date: 'Nov 5, 2025',
     category: 'Guides',
     image: '/img/guides/how-to-create-timeline/cover.png',
-    link: '/guides/how-to-create-a-timeline',
+    link: '/guides/how-to-create-a-timeline/',
     featured: true,
   },
   {
@@ -37,7 +37,7 @@ export const featuredArticles: Article[] = [
     date: 'Nov 4, 2025',
     category: 'Guides',
     image: '/img/guides/using-vs-code-amp-code-and-github-for-technical-writing/cover.png',
-    link: '/guides/vs-amp-code-set-up-guide',
+    link: '/guides/vs-amp-code-set-up-guide/',
     featured: true,
   },
   {
@@ -47,7 +47,7 @@ export const featuredArticles: Article[] = [
     date: 'Nov 11, 2025',
     category: 'Comparisons',
     image: '/img/comparisons/dash0-honeycomb-newrelic/cover.png',
-    link: '/comparisons/dash0-vs-honeycomb-vs-new-relic',
+    link: '/comparisons/dash0-vs-honeycomb-vs-new-relic/',
     featured: true,
   },
   {
@@ -57,7 +57,7 @@ export const featuredArticles: Article[] = [
     date: 'Nov 12, 2025',
     category: 'Comparisons',
     image: '/img/comparisons/firebase-supabase-appwrite/cover.jpg',
-    link: '/comparisons/firebase-vs-supabase-vs-appwrite',
+    link: '/comparisons/firebase-vs-supabase-vs-appwrite/',
     featured: true,
   },
   {
@@ -67,7 +67,7 @@ export const featuredArticles: Article[] = [
     date: 'Nov 6, 2025',
     category: 'Comparisons',
     image: '/img/comparisons/signoz-datadog-grafana/cover.png',
-    link: '/comparisons/signoz-vs-datadog-vs-grafana',
+    link: '/comparisons/signoz-vs-datadog-vs-grafana/',
     featured: true,
   },
   {
@@ -77,7 +77,7 @@ export const featuredArticles: Article[] = [
     date: 'Oct 21, 2025',
     category: 'Comparisons',
     image: '/img/comparisons/cloudflare-rwsdk-real-time/cover.png',
-    link: '/comparisons/cloudflare-workers-vs-redwoodsdk-real-time-apps',
+    link: '/comparisons/cloudflare-workers-vs-redwoodsdk-real-time-apps/',
     featured: true,
   },
   {
@@ -87,7 +87,7 @@ export const featuredArticles: Article[] = [
     date: 'Oct 17, 2025',
     category: 'Comparisons',
     image: '/img/comparisons/serp-api/cover.png',
-    link: '/comparisons/best-serp-api-comparison-serpapi-exa-tavily',
+    link: '/comparisons/best-serp-api-comparison-serpapi-exa-tavily/',
   },
   {
     title: 'Railway vs Vercel for Full-Stack Applications',
@@ -96,7 +96,7 @@ export const featuredArticles: Article[] = [
     date: 'Oct 28, 2025',
     category: 'Comparisons',
     image: '/img/comparisons/vercel-vs-railway/cover.png',
-    link: '/comparisons/vercel-vs-railway',
+    link: '/comparisons/vercel-vs-railway/',
   },
   {
     title: 'Vercel vs Render',
@@ -105,7 +105,7 @@ export const featuredArticles: Article[] = [
     date: 'Oct 30, 2025',
     category: 'Comparisons',
     image: '/img/comparisons/vercel-vs-render/cover.png',
-    link: '/comparisons/vercel-vs-render',
+    link: '/comparisons/vercel-vs-render/',
   },
 ];
 

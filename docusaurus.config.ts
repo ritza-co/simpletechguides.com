@@ -115,8 +115,8 @@ const config: Config = {
         src: 'img/logo.png',
       },
       items: [
-        {to: '/comparisons', label: 'Comparisons', position: 'left'},
-        {to: '/guides', label: 'Guides', position: 'left'},
+        {to: '/comparisons/', label: 'Comparisons', position: 'left'},
+        {to: '/guides/', label: 'Guides', position: 'left'},
       ],
     },
     footer: {
@@ -127,11 +127,11 @@ const config: Config = {
           items: [
             {
               label: 'Guides',
-              to: '/guides',
+              to: '/guides/',
             },
             {
               label: 'Comparisons',
-              to: '/comparisons',
+              to: '/comparisons/',
             },
           ],
         },
