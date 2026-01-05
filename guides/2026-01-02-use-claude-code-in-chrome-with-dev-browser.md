@@ -1,6 +1,6 @@
 ---
 slug: use-claude-code-in-chrome-with-dev-browser
-title: How to give Claude Code access to a web browser with dev-browser
+title: How to give Claude Code access to Google Chrome with dev-browser
 description: Learn how to install and use the dev-browser MCP server with Claude Code to enable visual browser testing. Test your code with Chrome and get real-time visual feedback on your implementations.
 authors: [simpletechguides]
 tags: [claude-code, dev-browser, mcp, chrome, browser-testing, visual-feedback, agentic-coding, automation, playwright, mcp-server]
@@ -10,49 +10,91 @@ image: /img/guides/use-claude-code-in-chrome-with-dev-browser/cover.png
 
 # How to give Claude Code access to a web browser with dev-browser
 
-There is one issue with agentic coding: testing the work. At the end of each work, and mostly big features, you need to make sure the work is done and well done. However, automating the workflow is possible using tools such as Playwright, but the issue is that Playwright runs headless browsers, the agents can't get visual feedback. 
+When Claude Code builds a registration form, it has no idea if the form is centered, if the button is the right color, or if the layout breaks on mobile. It can't open a browser to check. So it guesses, ships the code, and it's up to you or your customers to discover the problems later.
 
-In this article, we are going to use the dev-browser MCP server to allow Claude Code to access the Chrome web browser and test its work. 
+Tools like Playwright can automate browser testing, but they don't help Claude iterate autonomously. Playwright requires you to write test scripts beforehand. Claude can't use it to inspect what it just built and decide what to fix next.
+
+In this guide, you'll set up dev-browser, an MCP server that gives Claude Code access to Chrome. With [dev-browser](github.com/SawyerHood/dev-browser) Claude can test its own work, spot visual issues, and iterate autonomously—without you manually checking each change.
 
 ## Prerequisites 
 
-For this tutorial, you will need: 
+For this tutorial, you'll need:
 
-- Claude's code installed
-- Node installed
-- Google Chrome installed
+- **Claude Code** installed and working
+- **Node.js 18+**
+- **Google Chrome** installed
+- Basic command line experience
 
 ## Install the MCP server
 
-Open Claude Code in your terminal and enter the following command to install the MCP server: 
+Start a Claude Code session:
+```bash
+claude
+```
+
+First, add dev-browser to your marketplace:
 
 ```bash
 /plugin marketplace add sawyerhood/dev-browser
 ```
 
-![MCP server marketplace add](./assets/mcp-server-marketplace-add.png)
+![MCP server marketplace add](/img/guides/use-claude-code-in-chrome-with-dev-browser/mcp-server-marketplace-add.png)
 
-Once it's done, run the following commamnd to install the plugin. 
+This registers the plugin in your Claude Code environment. Next, install the plugin:
 
 ```bash
 /plugin install dev-browser@sawyerhood/dev-browser
 ```
 
-You will be prompted to choose the installation scope. Choose what works for you, but we are choosing the `Install for you (user scope) option`.
+You will be prompted to choose the installation scope. Choose what works for you, but we are selecting the `Install for you (user scope)` option.
 
-![Plugin installation scope selection](./assets/plugin-installation-scope-selection.png)
+![Plugin installation scope selection](/img/guides/use-claude-code-in-chrome-with-dev-browser/plugin-installation-scope-selection.png)
 
-Once it's done, the plugin will be installed.
+Once installation completes, you'll see a confirmation message.
 
-![Plugin installed successfully](./assets/plugin-installed-successfully.png)
+![Plugin installed successfully](/img/guides/use-claude-code-in-chrome-with-dev-browser/plugin-installed-successfully.png)
 
-Restart the Claude Code by exiting the running session and re-entering the Claude Code. 
+Restart Claude Code for the changes to take effect:
 
-## Creating a project
+```bash
+# Exit current session
+exit
 
-To test the installation, let's ask Claude to create a project with a registration page. The goal is simple. We want Claude to run a registration step but also to give visual feedback it can confirm and make a fix about. 
+# Start new session
+claude
+```
 
-You can use this prompt to create the project.
+Verify dev-browser is installed:
+```bash
+/plugin list
+```
+
+You should see `dev-browser` in the output.
+
+## Setting up a test project
+
+To see dev-browser in action, you need a project with visual elements Claude can test. 
+
+### Option A: Clone the project
+
+Clone this example registration app:
+
+```bash
+git clone https://github.com/ritza-co/using-claude-code-with-chrome
+cd using-claude-code-with-chrome
+```
+
+Start a Claude Code session and ask Claude to install and run the project:
+
+```bash
+claude
+> Install dependencies and start the server for this registration project.
+```
+Claude will run `npm install` and `npm start as background tasks.
+
+### Option B: Build from Scratch 
+
+If you prefer to have Claude Code build the project from scratch, you can use this prompt to create the project.
 
 ````bash
 Hi Claude,  
@@ -95,56 +137,86 @@ npm start
 
 You should have something similar: 
 
-![Project creation result](./assets/project-creation-result.png)
+![Project creation result](/img/guides/use-claude-code-in-chrome-with-dev-browser/project-creation-result.png)
 
-You can also clone the project base directly using this command and direct Claude Code for installation.
-
-```bahs
-git clone https://github.com/ritza-co/using-claude-code-with-chrome
-```
-
-You can allow Claude Code to install the dependencies and run the project or you can use the following commands: 
+Then, you can ask Claude Code to run the server:
 
 ```bash
-npm install && npm start
+> Install dependencies and start the server for this registration project.
 ```
 
-We will recommand to let Claude Code handle everything. 
+## Claude's autonomous testing workflow
 
-## Running the dev-browser plugin
+With the server running, ask Claude to test and fix the registration form:
+```
+Use dev-browser to test the registration form. Check that:
+1. The form is centered on the page
+2. Input fields have labels
+3. The submit button is blue (#0066cc)
+4. Registration works with valid input
 
-In your Claude terminal, ask Claude to use the dev-browser plugin to test the registration page. 
+Fix any issues you find and re-test until everything matches these requirements.
+```
 
+Claude will use the dev-browser plugin to open Chrome and navigate to http://localhost:3000/register.
+
+![Chrome registration page](/img/guides/use-claude-code-in-chrome-with-dev-browser/chrome-registration-page.png)
+
+Claude fills in test credentials and submits the form.
+
+![Registration success](/img/guides/use-claude-code-in-chrome-with-dev-browser/registration-success.png)
+
+### Visual feedback and iterative refinement
+
+Now let's test dev-browser's iterative capabilities. We'll ask Claude to redesign the layout based on visual feedback from Chrome.
+
+Ask Claude to restructure the page:
 ```txt
-Use the dev-browser plugin to run a registration test and make sure the user is created in the database.
+Use dev-browser to redesign the registration page layout:
+1. Move the form to the right side of the screen
+2. Add descriptive text about the project on the left side
+3. Make sure both sections are properly aligned and centered
+
+Keep testing and iterating until the layout matches these requirements.
 ```
 
-Claude Code will open the page in Chrome and you will see the registration page. 
+Claude uses dev-browser to analyze the current page, then begins making changes:
 
-![Chrome registration page](./assets/chrome-registration-page.png)
+![Claude visual analysis](/img/guides/use-claude-code-in-chrome-with-dev-browser/claude-visual-analysis.png)
 
-After a moment, the registration will happen and you will see the following page. 
+Claude iteratively modifies the HTML and CSS, checking the result in Chrome after each change. You'll see Claude: 
 
-![Registration success](./assets/registration-success.png)
-
-That means the user has been registered. 
-
-### Visual feedback
-
-The UI is a bit average, but we can ask Claude to scan the registration page and let us know if the form is centered. We will ask Claude to move the form to the right side and add some centered text on the left side to describe the project.
-
-```txt
-Use the dev-browser plugin to analyze the registration page and check whether: (1) the form is positioned on the left side of the screen, and (2) there is descriptive text about the project on the right side.
-```
-
-![Claude visual analysis](./assets/claude-visual-analysis.png)
-
-You can see Claude modifying the code, taking a screenshot to analyze the result. You should force Claude to always analyze the changes until the result matches what you are looking for.
+- Restructure the layout into a two-column design 
+- Adjust spacing and alignment based on what it sees 
+- Refine the styling through multiple iterations 
+- Report when requirements are met
 
 ## Troubleshooting
 
-The dev-browser implementation excels at testing changes. However, when it comes to visual feedback, your prompts need to be more accurate in what you want, and you need to specify to Claude to keep visiting the page until everything is pixel-perfect.
+Claude may report that the layout is complete after one or two iterations, even when issues remain. Push Claude to continue by pointing out specific problems you still see. Tell Claude to use dev-browser again and verify the exact requirements you want fixed.
+
+After five or more iterations, Claude's fixes may stop improving or repeat the same errors. When this happens, start a new Claude Code session with clearer requirements. Break complex visual tasks into smaller steps. For example, first get the layout right, then work on colors and spacing separately.
+
+Claude with dev-browser works best with specific, testable criteria:
+
+**❌ Vague:**
+```
+Make the registration form look good
+```
+
+**✅ Specific:**
+```
+Use dev-browser to verify and iterate until:
+1. Form is centered horizontally (max-width: 400px, margin: 0 auto)
+2. Submit button is blue (#0066cc) with white text
+3. Input fields have 10px padding
+4. Form has 20px spacing between fields
+```
+
+If you can't verify it by looking, Claude can't either. Try to specify measurable requirements.
 
 ## Conclusion
 
-In this guide, we learned how to use Claude Code with the dev-browser plugin to allow Claude to test its own work. We did the installation and showed how to use prompts to have the result you want. In the next guide, we will explore how to use the Playwright MCP server to allow Claude to access a browser and test its work.
+In this guide, you installed the dev-browser MCP server and learned how to use it with Claude Code. You set up a test project, asked Claude to build and test features autonomously, and observed how Claude uses Chrome's visual feedback to iterate on UI improvements. dev-browser is useful when you're building user interfaces and want Claude to verify its own work visually. This works well for registration forms, dashboards, landing pages, or any feature where visual layout and styling matter.
+
+In the next guide, we will explore how to use the official Google Chrome Claude extension to allow Claude Code to access Chrome and test its work.
