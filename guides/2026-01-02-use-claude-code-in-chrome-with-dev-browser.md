@@ -96,7 +96,7 @@ To see dev-browser in action, you need a project with visual elements that Claud
   > Install dependencies and start the server for this registration project.
   ```
 
-Claude runs `npm install` and `npm start as background tasks.
+Claude runs `npm install` and `npm start` as background tasks.
 
 ### Option B: Build the project from scratch 
 
@@ -227,6 +227,6 @@ If you can't verify whether the webpage meets your criteria by looking at it, Cl
 
 ## Conclusion
 
-We've installed the dev-browser MCP server and learned how to use it with Claude Code. In a test project, we asked Claude to build and test features autonomously, and observed how it uses Chrome's visual feedback to iterate on UI improvements, demonstrating how dev-browser enables Claude to verify its own work visually. This flow works well for building user interfaces like registration forms, dashboards, landing pages, or any feature where visual layout and styling matter.
+We've installed the dev-browser MCP server and learned how to use it with Claude Code. In a test project, we asked Claude to build and test features autonomously, and observed how it uses Chrome's visual feedback to iterate on UI improvements. Our project demonstrates how dev-browser enables Claude to verify its own work visually. This flow works well for building user interfaces like registration forms, dashboards, landing pages, or any feature where visual layout and styling matter.
 
 In the next guide, we'll explore how to use the official Google Chrome Claude extension to allow Claude Code to access Chrome and test its work.
