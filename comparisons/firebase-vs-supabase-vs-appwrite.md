@@ -1,6 +1,6 @@
 ---
 slug: firebase-vs-supabase-vs-appwrite
-title: "Firebase vs Supabase vs Appwrite: We Built the Same App Three Times"
+title: "Firebase vs Supabase vs Appwrite: We built the same app three times"
 description: "Building a shopping list app on Firebase, Supabase, and Appwrite to compare setup experience, database models, security approaches, and developer tooling."
 authors: [simpletechguides]
 tags: [backend, firebase, supabase, appwrite, baas, comparison, real-time, authentication, database]
@@ -24,7 +24,7 @@ In this comparison, we'll walk through the setup experience for each platform, e
 
 By the end, you'll understand which platform matches your experience level and project requirements.
 
-## What We Built
+## What we built
 
 We built a collaborative shopping list app called [Grocery Share](https://github.com/ritza-co/grocery-share). You can create lists, invite people by email to edit them, or generate public read-only links to share with anyone.
 
@@ -44,7 +44,7 @@ The app lets you:
 
 These features force you to deal with each platform's security model. Multi-user permissions, real-time syncing, and email lookups reveal how platforms actually work when you build something beyond a todo list tutorial.
 
-## The Platforms
+## The platforms
 
 We implemented the same app on three different platforms:
 
@@ -70,7 +70,7 @@ You register your app, pick npm or a script tag, and Firebase shows you the exac
 
 Enable Email/Password authentication in the console and you're ready to start building.
 
-#### Database Setup
+#### Database setup
 
 With Firebase, you don't create a database. You don't define a schema. Install the SDK, start writing to a collection, and Firestore creates it automatically.
 
@@ -101,7 +101,7 @@ The auth view is straightforward:
 
 You can see users with their UIDs, sign-in providers, creation dates, and last sign-in times. Manual user management is simple from here.
 
-#### Security Model
+#### Security model
 
 Firebase uses a declarative rules file for security. You write `firestore.rules`:
 
@@ -136,7 +136,7 @@ The rules approach works well because all your security logic lives in one file.
 
 The tricky part is learning the rules syntax. It's its own domain-specific language. Using `get()` calls inside rules (like checking the parent list's permissions for items in a subcollection) can also slow down queries since each rule evaluation needs to fetch additional documents.
 
-#### Email Invites
+#### Email invites
 
 The most complex feature to implement on Firebase is email invitations. Firestore doesn't expose user lookups by email, so you need to create a separate `users` collection that mirrors the auth data. When someone signs up, you write their email to `users/{uid}/email`. When inviting a collaborator, you query this collection to find the user ID.
 
@@ -150,7 +150,7 @@ Supabase gives you a real PostgreSQL database behind a nice UI. Create a project
 
 Pick a region, set a database password (you'll need this for direct Postgres connections), and wait. The free tier pauses after a week of inactivity, but you can unpause instantly when you need it.
 
-#### Database Setup
+#### Database setup
 
 Supabase's Table Editor shows you a spreadsheet-like view of your PostgreSQL tables:
 
@@ -197,7 +197,7 @@ The connection configuration shows your database credentials:
 
 You copy the project URL and anon key to your `.env` file. That's it for client setup - just two environment variables compared to Firebase's seven.
 
-#### Security Model
+#### Security model
 
 Supabase security happens at the database level with Row Level Security (RLS) policies. These are SQL statements that run on every query:
 
@@ -236,7 +236,7 @@ Supabase's RLS approach has real advantages. The security is enforced at the dat
 
 The hard part is debugging policies. There's no "test this policy" button in the UI. You write queries, they fail with permission errors, you adjust the policies, and repeat. The SQL Editor becomes your main debugging tool.
 
-#### Email Confirmation During Testing
+#### Email confirmation during testing
 
 When you start testing authentication by creating user accounts, Supabase sends a confirmation email by default:
 
@@ -246,7 +246,7 @@ This is enabled out of the box. For production apps, this is exactly what you wa
 
 The confirmation emails come from Supabase's servers (`noreply@mail.app.supabase.io`). They look professional and just work. Firebase also supports email confirmation, but it's optional and requires setting up email templates manually.
 
-#### Email Invites with RLS
+#### Email invites with RLS
 
 Email invitations require the most complexity on Supabase. You need to write a PostgreSQL RPC function to look up users by email (clients can't query `auth.users` directly for security reasons). Then you insert records into the `list_collaborators` junction table. Then you debug the RLS circular dependency we mentioned earlier. Then you make sure the junction table inserts work correctly with your policies.
 
@@ -260,7 +260,7 @@ Appwrite has the friendliest onboarding. Create a project and immediately pick y
 
 You choose your framework (React, Vue, Next.js, or vanilla JavaScript), enter `localhost` for local development, and click Create Platform. There's no provisioning wait and no complex config object to copy. You just get a project ID and endpoint URL, and you're ready to go.
 
-#### Database Setup
+#### Database setup
 
 Appwrite's database view shows collections and attributes in a clean table:
 
@@ -280,7 +280,7 @@ The auth view shows users clearly:
 
 You see user IDs, names (if set), email identifiers, verification status, and join dates. The "Create user" button is right there for manual account creation during testing.
 
-#### Security Model
+#### Security model
 
 Appwrite stores permissions with each document in a `$permissions` array. You set them when creating documents:
 
@@ -334,13 +334,13 @@ The repetitive part is that every `createDocument` call needs to include permiss
 
 When you query documents, Appwrite automatically filters based on the current user's permissions. Call `listDocuments()` and you only get back what you can access. No need to write separate queries for owned vs shared lists like in Supabase.
 
-#### Email Invites
+#### Email invites
 
 Email invitations are the simplest feature to implement on Appwrite. You look up the user by email via the Users API, add their ID to the document's permissions, and you're done. There's no junction table to set up and no RLS policy debugging. You just update the permissions array.
 
 This directness is Appwrite's strength. There's less ceremony and fewer layers between your code and the operation you want to perform.
 
-## MCP Support
+## MCP support
 
 If you use Claude Code or other AI tools that support MCP (Model Context Protocol), this feature matters.
 
@@ -385,7 +385,7 @@ Firebase doesn't have an MCP server. You can paste error messages and code snipp
 
 For teams using AI pair programming tools heavily, this is a noticeable gap. Supabase's MCP integration makes debugging RLS policies easier by letting your AI assistant query the database directly and analyze policies.
 
-## Hosting Options
+## Hosting options
 
 ### Firebase
 
@@ -418,7 +418,7 @@ Supabase focuses on the backend. For your frontend, you'll need to use Vercel, N
 
 This means an extra service to manage, though most teams already have a preferred frontend deployment workflow. If you want everything in one platform, Firebase or Appwrite makes more sense.
 
-## Database Models Compared
+## Database models compared
 
 ### Firebase
 
@@ -489,7 +489,7 @@ Collaborators aren't stored as data - they're permissions. Add a user to the `$p
 
 Relationships between collections are first-class in Appwrite. When you create a "many-to-one" relationship from items to lists, Appwrite handles the linking automatically. If you delete a list with cascade enabled, the related items are removed automatically.
 
-## Code Complexity
+## Code complexity
 
 We counted non-comment, non-whitespace lines across all implementation files.
 
@@ -501,7 +501,7 @@ We counted non-comment, non-whitespace lines across all implementation files.
 
 Fewer lines doesn't mean better. Supabase's extra SQL bought strong data integrity and database-level security.
 
-## Which One to Choose
+## Which one to choose
 
 **For MVPs and proof-of-concepts:** Firebase. No schema required means you start writing data immediately. The NoSQL model works great when you're validating an idea and the data model might change. Fast to prototype. The limitation is that it becomes restrictive once you need to scale beyond the initial concept. Arrays for collaborators don't scale past about 1000 users. The workarounds (like maintaining a separate `users` collection for email lookups) start to add up.
 
@@ -511,7 +511,7 @@ Fewer lines doesn't mean better. Supabase's extra SQL bought strong data integri
 
 For this specific shopping list app, we'd start with Firebase to validate the core idea. If it gained traction and needed to scale, we'd [migrate to Supabase](https://supabase.com/docs/guides/platform/migrating-to-supabase/firestore-data) for the relational model and database-level security. [Appwrite would be the choice](https://appwrite.io/docs/advanced/migrations/firebase) if we wanted something production-ready without Supabase's steep learning curve.
 
-## See the Code
+## See the code
 
 All three implementations are in the [Grocery Share repository](https://github.com/ritza-co/grocery-share) on GitHub with complete code and detailed implementation notes:
 

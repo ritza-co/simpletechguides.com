@@ -18,7 +18,7 @@ You'll see how each platform handles Kubernetes setup, what daily usage actually
 
 <!--truncate-->
 
-## The App We're Monitoring
+## The app we're monitoring
 
 To test these platforms, you need an application that generates real telemetry data. A static website tells you nothing about how observability tools handle production complexity.
 
@@ -26,7 +26,7 @@ The test application is a shared grocery list running on [Kubernetes](https://ku
 
 This setup lets you evaluate how each platform handles Kubernetes integration, what its dashboards show during resource contention, and whether its alerts trigger when they should.
 
-## What You Need to Know
+## What you need to know
 
 Observability platforms are difficult to migrate away from. Once you've built dashboards, configured alerts, and instrumented your applications, switching tools means rebuilding that infrastructure from scratch.
 
@@ -34,7 +34,7 @@ Observability platforms are difficult to migrate away from. Once you've built da
 - **Choose New Relic when** you need to monitor infrastructure across multiple cloud providers and services. The guided installation takes longer than Dash0, but the 700+ integrations mean you rarely need to manually instrument. The free tier (100 GB/month permanently) makes it viable for teams that need enterprise features without an immediate budget.
 - **Choose Dash0 when** you're running [Kubernetes](https://kubernetes.io/) and want a fast setup with [OpenTelemetry](https://opentelemetry.io/). Installation takes four commands via [Helm](https://helm.sh/). The integration catalog is smaller (50+ vs New Relic's 700+), but the OpenTelemetry-native approach means anything speaking OTLP works without vendor-specific agents. The AI service monitoring features make it relevant for teams adding LLM integrations to their products.
 
-## Installation and Setup
+## Installation and setup
 
 Each platform takes a different approach to Kubernetes integration: New Relic provides a guided wizard with extensive configuration options, Dash0 uses a Kubernetes operator for automated setup, and Honeycomb requires manual deployment of an OpenTelemetry collector.
 
@@ -142,7 +142,7 @@ Honeycomb supports authentication via Google or email. After login, you configur
 
 Setup requires understanding OpenTelemetry architecture. No guided UI wizard is provided. Setup took approximately 20 minutes, requiring documentation consultation for collector configuration values and OTLP endpoint setup.
 
-## Telemetry and Visualization
+## Telemetry and visualization
 
 Each platform organizes telemetry data differently. New Relic groups data by entities, Dash0 separates signals into dedicated views, and Honeycomb centers on event queries.
 
@@ -220,7 +220,7 @@ Honeycomb provides a dashboard feature where you can create custom dashboards. T
 
 ![Honeycomb Dashboard Template](/img/comparisons/dash0-honeycomb-newrelic/honeycomb-dashboard-template.png)
 
-#### Service Maps and SLOs
+#### Service maps and SLOs
 
 Honeycomb provides SLOs and service maps to help visualize your services and understand your architecture. Service maps visualize service architecture, identify service dependencies, and analyze the services involved in specific requests. The map is generated from distributed traces using Honeycomb's Environments and Services data model. Service-level objectives (SLOs) allow you to define and monitor service-level reliability over time.
 
@@ -228,7 +228,7 @@ Honeycomb provides SLOs and service maps to help visualize your services and und
 
 If you want comprehensive dashboards showing all system activity at once, New Relic or Dash0 provide that density. New Relic's pre-built dashboards populate instantly, while Dash0's template-based filters cover common patterns. If you prefer cleaner interfaces and query-driven investigation, Honeycomb's approach feels less cluttered but requires more active engagement to find issues.
 
-## Alerting and Notifications
+## Alerting and notifications
 
 All three platforms provide alerting capabilities, but they differ in notification channel options and workflow customization.
 
@@ -266,7 +266,7 @@ If you need the widest range of notification destinations, Dash0 supports the mo
 
 All three platforms support webhook-based alerting, which is helpful if you want to build custom notification workflows.
 
-## Developer Experience and Documentation
+## Developer experience and documentation
 
 Developer experience varies significantly across these platforms. New Relic provides guided wizards, Dash0 emphasizes concise setup steps, and Honeycomb requires understanding its event-based model.
 
@@ -333,7 +333,7 @@ Honeycomb uses event-based pricing with three tiers.
 
 - **Enterprise:** Custom pricing with a base allowance of 10 billion events per year. You get 100+ SLOs, secure tenancy, service maps, API access, dedicated customer success, and extended onboarding with a two-hour support response time.
 
-### Free Tier Comparison
+### Free tier comparison
 
 New Relic has the most generous free tier with 100 GB/month and access to all platform capabilities. Honeycomb provides 20 million events/month free. Dash0 offers a 14-day trial, but there is no permanent free tier.
 
@@ -345,18 +345,18 @@ Here is a table summarizing the differences.
 
 | Category                          | New Relic        | Dash0            | Honeycomb            |
 | --------------------------------- | ---------------- | ---------------- | -------------------- |
-| **Fast Setup (under 10 min)**          | ❌ (~15 min)      | ✅ (~5 min)       | ❌ (~20 min)          |
-| **Low Learning Curve**            | ✅                | ✅                | ❌                    |
-| **Extensive Integration** | ✅ (700+)         | ❌ (50+)          | ❌                    |
-| **Generous Free Tier**            | ✅ (100 GB/month) | ❌ (14-day trial) | ✅ (20M events/month) |
-| **Predictable Pricing**           | ⚠️ (GB + users)   | ✅ (per signal)   | ✅ (per event)        |
-| **Easy Documentation Navigation** | ❌                | ✅                | ❌                    |
-| **Instant Dashboards**            | ✅                | ✅                | ✅                    |
-| **Beginner Friendly UI**          | ⚠️                | ⚠️                | ✅                    |
-| **Most Alert Channels**           | ❌ (8)            | ✅ (13)           | ❌ (4)                |
-| **Advanced Query Capabilities**   | ✅                | ✅                | ✅                    |
-| **Kubernetes-Native**             | ✅                | ✅                | ✅                    |
-| **No Manual Instrumentation**     | ✅                | ✅                | ✅                    |
+| **Fast setup (under 10 min)**          | ❌ (~15 min)      | ✅ (~5 min)       | ❌ (~20 min)          |
+| **Low learning curve**            | ✅                | ✅                | ❌                    |
+| **Extensive integration** | ✅ (700+)         | ❌ (50+)          | ❌                    |
+| **Generous free tier**            | ✅ (100 GB/month) | ❌ (14-day trial) | ✅ (20M events/month) |
+| **Predictable pricing**           | ⚠️ (GB + users)   | ✅ (per signal)   | ✅ (per event)        |
+| **Easy documentation navigation** | ❌                | ✅                | ❌                    |
+| **Instant dashboards**            | ✅                | ✅                | ✅                    |
+| **Beginner-friendly UI**          | ⚠️                | ⚠️                | ✅                    |
+| **Most alert channels**           | ❌ (8)            | ✅ (13)           | ❌ (4)                |
+| **Advanced query capabilities**   | ✅                | ✅                | ✅                    |
+| **Kubernetes-native**             | ✅                | ✅                | ✅                    |
+| **No manual instrumentation**     | ✅                | ✅                | ✅                    |
 
 You can try the demo app from the [grocery-sharing-app repository](https://github.com/ritza-co/grocery-sharing-app). The repository has branches with the setup for each service:
 

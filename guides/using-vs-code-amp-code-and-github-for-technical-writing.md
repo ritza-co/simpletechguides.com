@@ -15,6 +15,7 @@ Congratulations, you've booted up your MacBook and you're excited to do some tec
 <!--truncate-->
 
 ### VS Code
+
 Microsoft's VS Code is a powerful [IDE](https://en.wikipedia.org/wiki/Integrated_development_environment). But, what's really nice about it is that it installs as more of an advanced text editor and all its extended functionality, like support for various programming languages, is added optionally by the user using [extensions](https://code.visualstudio.com/docs/editor/extension-marketplace). This allows it to be relatively lightweight compared to other mainstream IDEs.
 
 To install VS Code on Mac, head to [this link](https://code.visualstudio.com/docs/?dv=darwinarm64). This should automatically start the download for the [ARM64](https://en.wikipedia.org/wiki/AArch64) package that can run natively on Apple Silicon chips. It will download as a .zip file containing the VS Code application. Once extracted, it can be dragged to the Applications folder and the installation is complete.
@@ -89,7 +90,7 @@ Git can be as simple or as powerful as you need it to be and a cheat-sheet for a
 * Once you're happy with all your changes you can push your branch changes to the online repository by running `git push origin name-of-your-branch`. This will provide you with a URL that you can use to create a [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
 The URL will look like: `https://github.com/<repo owner>/<repo name>/pull/new/your-branch`
 
-#### GitHub Pull Request
+#### GitHub pull request
 
 The idea of creating a pull request is to ask the owner of the online repository to accept the changes that you've made to your local files. This gives the owner of the repository a chance to view your updated and accept, reject, or suggest changes, before they are merged.
 
@@ -104,6 +105,7 @@ The idea of creating a pull request is to ask the owner of the online repository
 * It is now up to the owner of the repository to merge your changes. If you are the owner, you can go ahead and do it yourself. Otherwise, you will have to wait for those with authority to accept or reject your changes; or else explain nicely the manner in which your changes have personally offended them.
 
 ### AMP Code
+
 To limit offensive changes, it can be good to get the help of an AI agent. These days there are an abundance of options for agents. This guide will focus on setting up AMP Code; mainly because it has a decent ad-supported free tier.
 
 AMP Code requires an account to use, create an account or sign-in [here](https://ampcode.com/install). You can then follow the installation instructions provided, but they are also summarized below. 
@@ -118,7 +120,7 @@ Once it has launched, press `/` and type `free`; then select `mode: use free` fr
 
 ![launch-amp](/img/guides/using-vs-code-amp-code-and-github-for-technical-writing/launch-amp.gif)
 
-#### AMP Code VS Code Extension
+#### AMP Code VS Code extension
 
 You can get to the Extensions Marketplace in VS Code with the keyboard shortcut: `Shift + CMD + X`. Then, simply search for the required extension - Currently called: "AMP (research Preview)".
 
