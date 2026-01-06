@@ -48,13 +48,15 @@ For this tutorial, you need basic command line experience and the following inst
   /plugin install dev-browser@sawyerhood/dev-browser
   ```
 
-- When prompted to choose the installation scope, choose what works for you. Here, we select the `Install for you (user scope)` option:
+- When prompted to choose the installation scope, choose what works for you.
 
-  ![Plugin installation scope selection](/img/guides/use-claude-code-in-chrome-with-dev-browser/plugin-installation-scope-selection.png)
-
-When installation completes, it displays a confirmation message.
-
-![Plugin installed successfully](/img/guides/use-claude-code-in-chrome-with-dev-browser/plugin-installed-successfully.png)
+  Here, we select the `Install for you (user scope)` option:
+  
+    ![Plugin installation scope selection](/img/guides/use-claude-code-in-chrome-with-dev-browser/plugin-installation-scope-selection.png)
+  
+  When installation completes, it displays a confirmation message.
+  
+  ![Plugin installed successfully](/img/guides/use-claude-code-in-chrome-with-dev-browser/plugin-installed-successfully.png)
 
 - Restart Claude Code for the changes to take effect:
 
@@ -139,9 +141,9 @@ Claude runs `npm install` and `npm start as background tasks.
   ```
   ````
 
-Claude Code creates a project similar to the following: 
-
-![Project creation result](/img/guides/use-claude-code-in-chrome-with-dev-browser/project-creation-result.png)
+  Claude Code creates a project similar to the following: 
+  
+  ![Project creation result](/img/guides/use-claude-code-in-chrome-with-dev-browser/project-creation-result.png)
 
 - Then, ask Claude Code to run the server:
 
@@ -186,11 +188,11 @@ Now let's test dev-browser's iterative capabilities by asking Claude to redesign
   Keep testing and iterating until the layout matches these requirements.
   ```
 
-Claude uses dev-browser to analyze the current page, then begins making changes:
+  Claude uses dev-browser to analyze the current page, then begins making changes:
+  
+  ![Claude visual analysis](/img/guides/use-claude-code-in-chrome-with-dev-browser/claude-visual-analysis.png)
 
-![Claude visual analysis](/img/guides/use-claude-code-in-chrome-with-dev-browser/claude-visual-analysis.png)
-
-Claude iteratively modifies the HTML and CSS, checking the result in Chrome after each change. You can see Claude: 
+Claude iteratively modifies the HTML and CSS, checking the result in Chrome after each change. You can see Claude do the following: 
 
 - Restructure the layout into a two-column design 
 - Adjust the spacing and alignment based on what it sees 
