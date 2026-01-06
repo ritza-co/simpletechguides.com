@@ -98,7 +98,7 @@ To see dev-browser in action, you need a project with visual elements that Claud
 
 Claude runs `npm install` and `npm start as background tasks.
 
-### Option B: Build from Scratch 
+### Option B: Build the project from scratch 
 
 - If you prefer Claude Code to build the project from scratch, use this prompt to create the project:
 
