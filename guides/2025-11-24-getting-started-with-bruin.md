@@ -1,6 +1,6 @@
 ---
 slug: getting-started-with-bruin
-title: Getting Started with Bruin
+title: Getting started with Bruin
 description: Learn how to build a complete data pipeline with Bruin. Load CSV files, transform data with SQL, and create business analytics tables using this open-source ETL tool.
 authors: [simpletechguides]
 tags: [bruin, data-pipeline, etl, sql, duckdb, data-engineering, analytics, docker, dbt-alternative, data-transformation]
@@ -23,7 +23,7 @@ In this guide, you'll build an e-commerce analytics pipeline using CSV files and
 
 By the end, you'll have four analytics tables:
 
-| Table                  | Question                          | Key Metrics                                |
+| Table                  | Question                          | Key metrics                                |
 | ---------------------- | --------------------------------- | ------------------------------------------ |
 | `daily_revenue`        | "How much did we make each day?"  | Total revenue, order count, customer count |
 | `product_performance`  | "Which products sell best?"       | Units sold, revenue, ranking               |
@@ -40,7 +40,7 @@ To follow this guide, you'll need:
 
 The complete working project is available at https://github.com/ritza-co/getting-started-with-bruin.
 
-## Our Data pipeline architecture
+## Our data pipeline architecture
 
 Before diving into code, understand what you're building. This pipeline follows a medallion architecture, a pattern that organizes data into layers of increasing quality.
 
@@ -56,7 +56,7 @@ The pipeline has three layers:
 
 - Analytics layer: This is where you aggregate data into meaningful metrics to answer business questions. These tables are optimized for reporting and dashboards.
 
-## Bruin Concepts
+## Bruin concepts
 
 In Bruin, everything is an asset. An asset is a unit of work that produces data.
 
@@ -82,7 +82,7 @@ Bruin builds a dependency graph and executes assets in the correct order:
 
 ![Bruin dependency graph showing how assets depend on each other and execute in order](/img/guides/getting-started-with-bruin/bruin-dependency-graph.png)
 
-## Project Setup
+## Project setup
 
 > **Note:** Bruin provides a `bruin init` command that can scaffold projects from templates. However, this tutorial walks you through creating everything manually so you understand each component. If you prefer to start with a template, you can run `bruin init [template-name] [folder-name]` and then adapt it to this tutorial's structure.
 
@@ -133,11 +133,11 @@ Start the container:
 docker-compose up -d --build
 ```
 
-## Creating Sample Data
+## Creating sample data
 
 For this tutorial, you'll work with four CSV files. You can find these files in the project repository under `seeds/`, but they're included here so you can focus on learning Bruin.
 
-**seeds/users.csv**
+### seeds/users.csv
 
 ```csv
 user_id,email,signup_date,country
@@ -147,7 +147,7 @@ user_id,email,signup_date,country
 4,diana@example.com,2024-03-25,USA
 ```
 
-**seeds/products.csv**
+### seeds/products.csv
 
 ```csv
 product_id,name,price,category_id
@@ -159,7 +159,7 @@ product_id,name,price,category_id
 106,Headphones,149.99,2
 ```
 
-**seeds/categories.csv**
+### seeds/categories.csv
 
 ```csv
 category_id,category_name
@@ -167,7 +167,7 @@ category_id,category_name
 2,Accessories
 ```
 
-**seeds/carts.csv**
+### seeds/carts.csv
 
 ```csv
 cart_id,user_id,product_id,quantity,cart_date
@@ -180,7 +180,7 @@ cart_id,user_id,product_id,quantity,cart_date
 7,1,104,1,2024-04-20
 ```
 
-## Initializing Bruin pipeline
+## Initializing the Bruin pipeline
 
 Bruin allows you to define a YAML configuration file that includes the pipeline name and the environments. We will create a pipeline configuration file to determine the database connection.
 
@@ -200,11 +200,11 @@ In the configuration above, we are naming the pipeline `ecommerce-analytics` and
 
 With the configurations done, we can now move on to building the pipeline.
 
-## Building the Pipeline
+## Building the pipeline
 
 The pipeline has three layers: ingestion loads raw data, staging cleans and joins it, and analytics produces business metrics. You'll build each layer in order.
 
-### Ingestion (Seed Assets)
+### Ingestion (seed assets)
 
 The first step is ingestion. In Bruin, this means defining seed assets that load raw CSV data into DuckDB.
 
@@ -370,7 +370,7 @@ columns:
       - name: not_null
 ```
 
-### Staging (Data Cleaning)
+### Staging (data cleaning)
 
 This is the Transform phase of ETL, where you clean, normalize, and join data to prepare it for analytics. In Bruin, you use SQL assets with the `duckdb.sql` type.
 
@@ -460,7 +460,7 @@ WHERE
     AND p.product_id IS NOT NULL
 ```
 
-### Analytics (Business Metrics)
+### Analytics (business metrics)
 
 This is the Load phase of ETL, where you create final, business-ready datasets optimized for reporting. These analytics tables answer the business questions you defined at the start.
 
@@ -664,11 +664,11 @@ GROUP BY p.category_name
 ORDER BY total_revenue DESC
 ```
 
-## Running the Pipeline
+## Running the pipeline
 
 Now comes the exciting part: watching your pipeline come to life. You'll validate, visualize, and execute the entire data transformation process.
 
-### Step 1: Validate Configuration
+### Step 1: Validate configuration
 
 Before running anything, make sure your pipeline is correctly configured. This checks for syntax errors and configuration issues.
 
@@ -682,7 +682,7 @@ Expected output:
 ✓ Successfully validated 9 assets across 1 pipeline
 ```
 
-### Step 2: Visualize the Pipeline
+### Step 2: Visualize the pipeline
 
 Bruin generates automatic lineage diagrams showing how data flows through your pipeline:
 
@@ -690,7 +690,7 @@ Bruin generates automatic lineage diagrams showing how data flows through your p
 docker exec bruin-pipeline bruin lineage . -o lineage.html
 ```
 
-### Step 3: Run the Pipeline
+### Step 3: Run the pipeline
 
 Execute the entire pipeline from start to finish:
 
@@ -728,11 +728,11 @@ Pipeline completed successfully in 11.2 seconds
 ✓ 0 failures
 ```
 
-### Step 4: Query the Results
+### Step 4: Query the results
 
 You can query the data in two ways.
 
-#### Method 1: Quick Queries via Docker
+#### Method 1: Quick queries via Docker
 
 The fastest way to see results is using Bruin's built-in query command.
 

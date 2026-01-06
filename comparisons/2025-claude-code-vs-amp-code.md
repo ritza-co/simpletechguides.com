@@ -24,7 +24,7 @@ Claude Code and Amp both have the same foundational capabilities. Both use advan
 
 We're not listing the features both tools have. We focus on practical differences that change how you work: how detailed prompts need to be for usable output (especially UI work), whether sessions stay private or get shared with your team by default, what permission controls you get before the agent runs commands, how transparently each tool shows token consumption and costs, and how well they handle automation like background processes and long-running tasks.
 
-## UI Generation Quality: Claude Code
+## UI generation quality: Claude Code
 
 We gave both tools the same prompt to build a note-taking application:
 ```txt
@@ -107,7 +107,7 @@ The tradeoff: Amp's one-time setup means smoother interaction during active work
 
 For rapid iteration involving numerous file operations, Amp's approach is superior. For exploratory work on sensitive codebases, Claude might be appropriate.
 
-## Cost Transparency and Usage Tracking: Amp Code
+## Cost transparency and usage tracking: Amp Code
 
 Amp Code shows cost and token usage in your terminal after every response. Our note-taking app prompt cost $0.20 and consumed 24,137 tokens. We saw these numbers immediately.
 
@@ -127,7 +127,7 @@ Real-time tracking alerts you when context fills up. Large context windows degra
 
 With Claude Code, you need to remember to run `/context` and interpret the numbers yourself. For budget-conscious work or long debugging sessions, Amp Code's constant visibility wins. You make decisions based on current costs, not yesterday's surprise bill.
 
-## Context Awareness and Multi-file Editing: Amp Code
+## Context awareness and multi-file editing: Amp Code
 
 Amp Code spawns subagents that work in parallel to read files. When we asked it to debug the note-taking app, it launched multiple read operations simultaneously, each subagent returning file contents to the main agent for decision-making.
 
@@ -139,7 +139,7 @@ Claude Code processes files sequentially. It reads one file, adds it to the cont
 
 This shows us that Amp Code handles large codebases and multi-file operations more effectively. For debugging existing projects, reviewing pull requests across many files, or working with unfamiliar codebases, the parallel subagents save time and reduce hallucinations from context overload.
 
-## Developer Experience: Claude Code
+## Developer experience: Claude Code
 
 Both tool installations were straightforward. Both handle error messages well because they use the same Claude models. When we introduced a syntax error, both identified it and suggested identical fixes.
 
@@ -153,7 +153,7 @@ Both tools work as independent agents in subprocesses. You can integrate Claude 
 
 This tells us Claude Code prioritizes developer experience polish while Amp Code prioritizes speed and transparency. For terminal-based workflows where polish and customization matter, Claude Code's superior interface outweighs Amp's speed advantages. For team environments focused on cost visibility and collaboration, Amp's transparency wins despite the rougher terminal experience.
 
-## Final Thoughts
+## Final thoughts
 
 After a few days of building with both tools, we keep coming back to one realization: the choice isn't about which tool is better, it's about which philosophy fits your workflow.
 

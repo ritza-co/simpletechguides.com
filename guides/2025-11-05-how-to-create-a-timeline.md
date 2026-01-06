@@ -1,7 +1,7 @@
 ---
 
 slug: how-to-create-a-timeline
-title: How to Create a Timeline
+title: How to create a timeline
 description: Learn how to create timelines in Excel, Word, PowerPoint, Google Sheets, Preceden, and JavaScript. Step-by-step guides with examples for each tool.
 authors: [simpletechguides]
 tags: [timeline, excel, powerpoint, word, google-sheets, preceden, javascript, bryntum, project-management, visualization]
@@ -24,11 +24,11 @@ Each section is self-contained, so you can jump directly to the tool you want to
 
 <!--truncate-->
 
-## What Are the Differences Between a Timeline and a Gantt? 
+## What is the difference between a timeline and a Gantt chart? 
 
 Timelines and Gantt charts both visualize events over time, but they serve different purposes. Understanding the difference helps you choose the right tool for your project.
 
-### What's a Timeline? 
+### What is a timeline?
 
 A timeline is a linear visualization that shows events in chronological order.
 
@@ -42,7 +42,7 @@ Timelines focus on dates and milestones, making them ideal for:
 
 A timeline answers the question: **What happened when?**
 
-### What's a Gantt Chart? 
+### What is a Gantt chart?
 
 A Gantt chart shows when events happen, how long they take, and how they relate to each other.
 
@@ -57,19 +57,19 @@ Gantt charts display:
 
 A Gantt chart answers the questions: **When does this happen, how long does it take, and what depends on it?**
 
-### Timeline vs Gantt Chart: Which One Should You Use?
+### Timeline vs Gantt chart: Which one should you use?
 
 Choose a **timeline** when you want to communicate a sequence of events to an audience. Timelines work best for presentations, reports, and documentation where clarity matters more than detailed project management.
 
 Choose a **Gantt chart** when you need to plan and track complex projects with multiple tasks, dependencies, and resources. Gantt charts work best for project managers coordinating teams and deliverables.
 
-## How to Create a Timeline in Excel?
+## How to create a timeline in Excel
 
 [Excel](https://www.microsoft.com/en-us/microsoft-365/excel) doesn't have a dedicated timeline chart. You can create a basic timeline using [SmartArt](https://support.microsoft.com/en-us/office/create-a-smartart-graphic-from-scratch-fac94c93-500b-4a0a-97af-124040594842) graphics, which work in Excel desktop applications but not in [Excel Online](https://www.microsoft365.com/launch/excel).
 
 ### Step 1: Insert SmartArt
 
-On the Excel application, follow these steps: 
+On the Excel application, follow these steps:
 
 1. Go to the Insert tab.
 2. Select the SmartArt option.
@@ -78,7 +78,7 @@ On the Excel application, follow these steps:
 
 ![Excel SmartArt insert process](/img/guides/how-to-create-timeline/excel-smartart-insert-process.png)
 
-### Step 2: Add Your Events
+### Step 2: Add your events
 
 Excel displays a timeline with placeholder text. Click each text box and type your event name and date.
 
@@ -86,13 +86,13 @@ Excel displays a timeline with placeholder text. Click each text box and type yo
 
 To add more events, you can use the SmartArt text utility, by typing on the "Enter" button for a new line, or the "+" button. A new item will appear on the right of your timeline.
 
-### Step 3: Format Your Timeline
+### Step 3: Format your timeline
 
 Customize your timeline using the SmartArt Design tab. You can change the colors, apply SmartArt styles or change the layout. 
 
 For detailed formatting, select individual text boxes and use the Format tab to change fill colors, borders, or text properties.
 
-## How to Create a Timeline in PowerPoint
+## How to create a timeline in PowerPoint
 
 [PowerPoint](https://www.microsoft.com/en-us/microsoft-365/powerpoint) provides [SmartArt](https://support.microsoft.com/en-us/office/create-a-smartart-graphic-from-scratch-fac94c93-500b-4a0a-97af-124040594842) graphics that make timeline creation straightforward. This feature is available in both PowerPoint desktop and [PowerPoint Online](https://www.microsoft365.com/launch/powerpoint).
 
@@ -106,7 +106,7 @@ For detailed formatting, select individual text boxes and use the Format tab to 
 
 ![PowerPoint SmartArt insert process](/img/guides/how-to-create-timeline/powerpoint-smartart-insert-process.png)
 
-### Step 2: Add Your Events
+### Step 2: Add your events
 
 A timeline graphic will appear with text placeholders. Click on each text box and type your event information. 
 
@@ -114,13 +114,13 @@ A timeline graphic will appear with text placeholders. Click on each text box an
 
 To add more events, you can use the SmartArt text utility by typing on the "Enter" button for a new line or the "+" button.
 
-### Step 3: Format Your Timeline
+### Step 3: Format your timeline
 
 Customize your timeline using the SmartArt Design tab. You can change the colors, apply SmartArt styles, or change the layout. 
 
 For detailed formatting, select individual text boxes and use the Format tab to change fill colors, borders, or text properties.
 
-## How to Create a Timeline in Word?
+## How to create a timeline in Word
 
 [Word](https://www.microsoft.com/en-us/microsoft-365/word) provides [SmartArt](https://support.microsoft.com/en-us/office/create-a-smartart-graphic-from-scratch-fac94c93-500b-4a0a-97af-124040594842) graphics for creating basic timelines in your documents. This method works in Word desktop applications (not [Word Online](https://www.microsoft365.com/launch/word)).
 
@@ -135,7 +135,7 @@ On the Word application, follow these steps:
 
 ![Word SmartArt insert process](/img/guides/how-to-create-timeline/word-smartart-insert-process.png)
 
-### Step 2: Add Your Events
+### Step 2: Add your events
 
 A timeline graphic will appear with text placeholders. Click on each text box and type your event information - include both the event name and date.
 
@@ -145,19 +145,19 @@ To add more events, click the SmartArt border, then click the SmartArt Design ta
 
 To remove events, click a box and press Delete.
 
-### Step 3: Format Your Timeline
+### Step 3: Format your timeline
 
 Customize your timeline using the SmartArt Design tab. You can change the colors, apply SmartArt styles, or change the layout. 
 
 For detailed formatting, select individual text boxes and use the Format tab to change fill colors, borders, or text properties.
 
-## How to Create a Timeline in Google Docs
+## How to create a timeline in Google Docs
 
 [Google Docs](https://www.google.com/docs/about/) doesn't have a built-in timeline feature. You can create a timeline in [Google Sheets](https://www.google.com/sheets/about/) using Timeline view, then add it to your document as an image.
 
-> **Note**: Timeline view is only available for [Google Workspace](https://workspace.google.com/) accounts (Business Starter, Business Standard, Business Plus, Enterprise, Education editions). Free Google accounts do not have access to this feature.
+> **Note:** Timeline view is only available for [Google Workspace](https://workspace.google.com/) accounts (Business Starter, Business Standard, Business Plus, Enterprise, Education editions). Free Google accounts do not have access to this feature.
 
-### Step 1: Prepare Your Data in Google Sheets
+### Step 1: Prepare your data in Google Sheets
 
 Create a new Google Sheet and set up your timeline data in columns:
 
@@ -174,7 +174,7 @@ Launch,7/15/2025,7/15/2025,Product launch
 
 Enter your dates in a standard format like 1/15/2025 or 01/15/2025. Google Sheets recognizes these as dates automatically and right-aligns them in the cells.
 
-### Step 2: Insert Timeline View
+### Step 2: Insert timeline view
 
 In your Google Sheet, follow these steps:
 
@@ -204,7 +204,7 @@ Google Docs doesn't support embedding timelines directly from Google Sheets. To 
 3. In Google Docs, click Insert -> Image -> Upload from computer.
 4. Select your converted timeline image.
 
-## How to Create a Timeline in Preceden?
+## How to create a timeline in Preceden
 
 [Preceden](https://www.preceden.com) is a dedicated timeline software explicitly designed for creating professional timelines. The free plan lets you create timelines manually, while paid plans allow you to import spreadsheet data for faster timeline creation.
 
@@ -242,7 +242,7 @@ Preceden allows you to export the timeline in many formats, such as PDF or Image
 
 ![Preceden export options](/img/guides/how-to-create-timeline/preceden-export-options.png)
 
-## How to Create a Timeline in JavaScript
+## How to create a timeline in JavaScript
 
 Creating timelines in web applications requires a [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) library that handles rendering, interactivity, and data management. While you could build a timeline from scratch using [HTML canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API) or [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG), production-quality timelines need features like drag-and-drop, zoom controls, and responsive design.
 
@@ -316,7 +316,7 @@ Inside the project directory, create an `index.html` file with the timeline cont
 
 ### Step 5: Create your JavaScript timeline
 
-Create an `app,js` file with the following timeline configuration: 
+Create an `app,js` file with the following timeline configuration:
 
 ```js
 import { Scheduler, DateHelper } from './node_modules/@bryntum/scheduler/scheduler.module.js';
@@ -389,7 +389,7 @@ const scheduler = new Scheduler({
 
 ### Step 6: Run your timeline
 
-Open `index.html` in a web browser. 
+Open `index.html` in a web browser.
 
 ![Bryntum timeline result](/img/guides/how-to-create-timeline/bryntum-timeline-result.png)
 

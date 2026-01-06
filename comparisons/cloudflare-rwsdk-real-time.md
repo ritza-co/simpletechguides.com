@@ -1,6 +1,6 @@
 ---
 slug: cloudflare-workers-vs-redwoodsdk-real-time-apps
-title: "Building Real-Time Apps with Cloudflare Workers and RedwoodSDK"
+title: "Building real-time apps with Cloudflare Workers and RedwoodSDK"
 description: Compare building real-time polling applications with Cloudflare Workers and RedwoodSDK. See the differences in development experience, code patterns, and deployment.
 authors: [simpletechguides]
 tags: [cloudflare, redwoodsdk, real-time, workers, comparison]
@@ -8,7 +8,7 @@ keywords: [cloudflare workers, redwoodsdk, real-time apps, durable objects, webs
 image: /img/comparisons/cloudflare-rwsdk-real-time/cover.png
 ---
 
-# Building Real-Time Apps with Cloudflare Workers and RedwoodSDK
+# Building real-time apps with Cloudflare Workers and RedwoodSDK
 
 Cloudflare Workers excel at edge computing with instant cold starts and global distribution. When you need real-time features, you'll typically set up Durable Objects for state management, WebSocket handlers for live updates, and custom authentication. RedwoodSDK handles these patterns with React server components and built-in real-time features while generating standard Cloudflare Workers code.
 
@@ -32,7 +32,7 @@ To follow along with this guide, you'll need Node.js 18 or higher installed on y
 - [Cloudflare account](https://dash.cloudflare.com/sign-up) with Workers enabled
 - A code editor like VS Code
 
-## Building the Polling App with Cloudflare Workers
+## Building the polling app with Cloudflare Workers
 
 We'll start with Cloudflare Workers to understand the platform fundamentals, then build the same app with RedwoodSDK to see how its React-based approach streamlines development.
 
@@ -43,7 +43,7 @@ mkdir polling-app-comparison
 cd polling-app-comparison
 ```
 
-### Creating the Cloudflare Workers Project
+### Creating the Cloudflare Workers project
 
 Start by setting up a new Cloudflare Workers project with React:
 
@@ -67,7 +67,7 @@ npm install
 
 Now we'll build the polling system step by step, starting with the database schema.
 
-### Configuring the Database
+### Configuring the database
 
 Create a D1 database for the polling app:
 
@@ -88,7 +88,7 @@ When you run this command, Cloudflare will prompt you to log in (if you haven't 
 
 Choose the second option, "Yes, but let me choose the binding name", and enter `DB` as the binding name.
 
-### Configuring TypeScript Types
+### Configuring TypeScript types
 
 To ensure TypeScript recognizes your database and Durable Object bindings, update the `worker-configuration.d.ts` file. Replace the empty `Env` interface with:
 
@@ -108,7 +108,7 @@ This defines the types for:
 - `DB`: Your D1 database binding (which we'll use immediately)
 - `POLL_DURABLE_OBJECT` and `REALTIME_DURABLE_OBJECT`: Durable Object bindings we'll configure later for state management and real-time features
 
-### Setting Up the Database Schema
+### Setting up the database schema
 
 First, create an empty migration file:
 
@@ -174,7 +174,7 @@ Apply the database migrations:
 npx wrangler d1 migrations apply polling-db --local
 ```
 
-### Building the Authentication System
+### Building the authentication system
 
 With Cloudflare Workers, you need to build authentication entirely from scratch. There's no built-in framework to handle users, sessions, or cookies. This means writing substantial amounts of boilerplate code that most web frameworks provide out-of-the-box.
 
@@ -400,8 +400,8 @@ This authentication service handles user registration, login, session management
 
 Durable Objects are Cloudflare's solution for stateful computing at the edge. For our polling app, we need two types:
 
-1. **Poll Durable Objects**: Handle vote counting with fast in-memory operations
-2. **Realtime Durable Objects**: Manage WebSocket connections for live updates
+1. **Poll Durable Objects:** Handle vote counting with fast in-memory operations
+2. **Realtime Durable Objects:** Manage WebSocket connections for live updates
 
 This approach provides excellent performance because votes are processed instantly in memory and WebSocket connections can broadcast updates to all connected clients. However, it requires manual coordination between different object types and careful management of WebSocket lifecycle events.
 
@@ -686,7 +686,7 @@ These Durable Objects handle poll-specific state management and WebSocket connec
 
 These two Durable Object classes require substantial infrastructure code. You need to manually handle WebSocket lifecycle events, message parsing, connection state management, session tracking, and error handling. Each feature that seems simple (like "broadcast a message to all connected clients") requires careful implementation of multiple methods and proper error handling.
 
-### Adding Utility Functions
+### Adding utility functions
 
 Now create `worker/utils.ts` for utility functions:
 
@@ -697,15 +697,15 @@ export function generateId(): string {
 }
 ```
 
-### Building the Main Worker
+### Building the main worker
 
 The main worker file is where all the complexity comes together. In Cloudflare Workers, this means manually implementing:
 
-- **API routing**: Pattern matching URLs and HTTP methods
-- **Authentication middleware**: Checking sessions on every protected route
-- **Database operations**: SQL queries and result processing
-- **Durable Object coordination**: Managing communication between poll state and real-time objects
-- **Error handling**: Comprehensive try-catch blocks for every operation
+- **API routing:** Pattern matching URLs and HTTP methods
+- **Authentication middleware:** Checking sessions on every protected route
+- **Database operations:** SQL queries and result processing
+- **Durable Object coordination:** Managing communication between poll state and real-time objects
+- **Error handling:** Comprehensive try-catch blocks for every operation
 
 This file will be quite large, with much of it being boilerplate that you'd write repeatedly across projects.
 
@@ -1026,11 +1026,11 @@ export default {
 
 This demonstrates both the power and burden of Cloudflare Workers: you have complete control over every aspect of your application's behavior, but you also need to implement every piece of infrastructure yourself.
 
-### Building the React Frontend
+### Building the React frontend
 
 The polling app needs several React components for different parts of the interface. We'll build these step by step, starting by updating the existing `src/App.tsx` file and then creating the individual components.
 
-#### Step 1: Update the Main App Component
+#### Step 1: Update the main app component
 
 Replace the contents of the existing `src/App.tsx` file with this updated version:
 
@@ -1148,7 +1148,7 @@ export default App
 
 This updated `App.tsx` includes proper routing, session management, and separates concerns into individual components.
 
-#### Step 2: Create the Components Directory
+#### Step 2: Create the components directory
 
 Create a new directory for your React components:
 
@@ -1156,7 +1156,7 @@ Create a new directory for your React components:
 mkdir src/components
 ```
 
-#### Step 3: Create Individual Component Files
+#### Step 3: Create individual component files
 
 Now we'll create each component file separately. This modular approach makes the code much more maintainable than having everything in one giant file.
 
@@ -1992,11 +1992,11 @@ export function VoteButtons({ pollId, choices }: VoteButtonsProps) {
 
 In the following sections, we'll implement each of these components step by step, showing you the exact code for each file. This organized approach makes it much easier to understand what each component does and how they work together.
 
-### Adding Styling
+### Adding styling
 
 For the complete CSS styling, copy the styles from the `src/App.css` file in [this repository](https://github.com/ritza-co/cloudflare-and-redwood-realtime-apps/blob/master/cloudflare-polling-app/src/App.css) and place it in your `src/` directory.
 
-### Testing the Cloudflare Workers App
+### Testing the Cloudflare Workers app
 
 Now you can test your Cloudflare Workers polling app:
 
@@ -2006,7 +2006,7 @@ npm run dev
 
 Open your browser to `http://localhost:5173`. You should see a login form where you can register a new account, create polls, and vote in real-time.
 
-**Testing real-time functionality:**
+#### Testing real-time functionality
 
 1. Create a poll with multiple choices and different colors
 2. Copy the poll URL from the "View & Vote →" button
@@ -2019,7 +2019,7 @@ Opening polls in private browsers ensures you're testing with separate user sess
 
 <img src="/assets/cloudflare-rwsdk-real-time/cf-workers-demo.png" alt="Cloudflare Workers app running" style={{maxWidth: '600px', width: '100%', height: 'auto'}} />
 
-**What you've accomplished:**
+#### What you've accomplished
 
 You've built a complete, production-ready polling application using Cloudflare Workers. The final tally:
 
@@ -2034,7 +2034,7 @@ The benefit: you understand exactly how every piece works and have complete cont
 
 Now let's see how RedwoodSDK handles the same functionality.
 
-## Building the Same App with RedwoodSDK
+## Building the same app with RedwoodSDK
 
 Now we'll build the identical polling application using RedwoodSDK. The goal is exactly the same functionality: real-time polling with vote counting and live updates. You'll see how the framework provides built-in solutions for the infrastructure patterns you just implemented manually.
 
@@ -2049,7 +2049,7 @@ cd redwood-polling-app
 npm install
 ```
 
-### RedwoodSDK Authentication Setup
+### RedwoodSDK authentication setup
 
 Here's the first major difference: RedwoodSDK includes built-in authentication. Instead of writing extensive custom authentication code like you did with Cloudflare Workers, the framework provides this automatically.
 
@@ -2082,7 +2082,7 @@ Compare this to the authentication service you wrote for Cloudflare Workers. Red
 
 >**Note:** For today's tutorial, we'll be using an experimental feature called the real-time client (`initRealtimeClient()`) to build live polling functionality. Since RedwoodSDK is still in active development, authentication is not currently configured to work with the real-time client system.
 
-### Configuring Durable Objects for Real-Time Features
+### Configuring Durable Objects for real-time features
 
 Here's another key difference: RedwoodSDK provides a built-in `RealtimeDurableObject` that handles WebSocket connections and message broadcasting automatically. You only need to create application-specific Durable Objects for your custom logic.
 
@@ -2145,13 +2145,13 @@ Update your `wrangler.jsonc` file to add the real-time and poll Durable Objects.
 ```
 
 This configuration adds:
-- **`REALTIME_DURABLE_OBJECT`**: Built-in RedwoodSDK class that handles WebSocket connections and real-time updates
-- **`POLL_DURABLE_OBJECT`**: Custom class you'll create to manage poll vote counting with fast in-memory updates
-- **Migration v2**: Creates the new Durable Object classes alongside the existing session management
+- **`REALTIME_DURABLE_OBJECT`:** Built-in RedwoodSDK class that handles WebSocket connections and real-time updates
+- **`POLL_DURABLE_OBJECT`:** Custom class you'll create to manage poll vote counting with fast in-memory updates
+- **Migration v2:** Creates the new Durable Object classes alongside the existing session management
 
 **The framework advantage:** Unlike the Cloudflare Workers version where you had to manually create both Durable Object classes, RedwoodSDK provides the `RealtimeDurableObject` built-in. You only need to create the poll-specific one, cutting your Durable Object code in half.
 
-### Setting Up the Database Schema
+### Setting up the database schema
 
 **Database simplification:** RedwoodSDK uses Prisma for database management, which means you define your schema declaratively instead of writing SQL migrations. Your fresh project already includes User and Credential models for authentication (which you had to build from scratch in Cloudflare Workers), but we need to add polling functionality.
 
@@ -2191,7 +2191,7 @@ This command creates a migration, generates the Prisma database client, creates 
 
 Compare this to the Cloudflare Workers setup where you manually wrote SQL migrations, configured database bindings, and created TypeScript interface definitions across multiple files.
 
-### Building the Backend Worker
+### Building the backend worker
 
 **The key difference:** Instead of building a large main worker file like you did with Cloudflare Workers, RedwoodSDK's approach is declarative. You'll add just a few route definitions and the framework handles all the infrastructure including authentication middleware, error handling, request parsing, and response formatting.
 
@@ -2290,7 +2290,7 @@ Finally, update the render routes. Replace the existing routes in the `render(Do
 - **No error handling boilerplate** because try/catch blocks are handled by the framework
 - **No response formatting** as you just return data and RedwoodSDK handles JSON responses
 
-### Setting Up the Real-Time Client
+### Setting up the real-time client
 
 Now you need to update the client-side code to enable real-time functionality. RedwoodSDK's real-time client automatically handles WebSocket connections and page updates when data changes.
 
@@ -2328,10 +2328,10 @@ The `key` parameter determines which clients receive updates together. For our p
 
 With RedwoodSDK, real-time features require just these three lines of setup. The framework automatically handles connection management, reconnection logic, message parsing, and page re-rendering when data changes.
 
-> **⚠️ Experimental Feature**
+> **⚠️ Experimental feature**
 > RedwoodSDK's real-time functionality is currently experimental. It works well for collaborative apps and live notifications, but the RedwoodSDK team is still gathering feedback on edge cases and advanced use scenarios.
 
-### Creating the Poll Durable Object
+### Creating the poll Durable Object
 
 Create `src/pollDurableObject.ts` to handle vote counting:
 
@@ -2373,7 +2373,7 @@ export class PollDurableObject extends DurableObject {
 
 Notice this is only 25 lines compared to the 180+ lines you wrote for Cloudflare Workers. You only need to implement the poll-specific logic because the framework provides the WebSocket handling that you had to build manually before.
 
-### Creating the React Components
+### Creating the React components
 
 Now update the existing `src/app/pages/Home.tsx` to handle polling functionality:
 
@@ -2781,7 +2781,7 @@ export function VoteButtons({ pollId, choices }: VoteButtonsProps) {
 
 This component uses React's `useTransition` for smooth voting UI and automatically triggers page reloads through RedwoodSDK's real-time system.
 
-### Creating Server Functions
+### Creating server functions
 
 Now create the server functions that handle database operations. Create `src/app/pages/polls/functions.ts`:
 
@@ -2861,11 +2861,11 @@ export const getPollVotes = async (pollId: string): Promise<PollVoteData> => {
 
 Compare this to the Cloudflare Workers approach where you had to manually write SQL queries, handle database connections, and manage error states. Here, Prisma provides type-safe database operations and the framework handles the server/client boundary automatically.
 
-### Adding Styling
+### Adding styling
 
 For the complete CSS styling, copy the styles from the `src/styles.css` file in [this repository](https://github.com/ritza-co/cloudflare-and-redwood-realtime-apps/blob/master/redwood-polling-app/src/styles.css) and place it in your `src/` directory.
 
-### Testing the RedwoodSDK App
+### Testing the RedwoodSDK app
 
 Start the development server:
 
@@ -2877,7 +2877,7 @@ The development environment automatically sets up your database, applies migrati
 
 Open your browser to `http://localhost:5173` and you'll see the same polling functionality, but notice how much less code you wrote to achieve it.
 
-**Testing real-time functionality:**
+#### Testing real-time functionality
 
 1. Create a poll with multiple choices and different colors
 2. Copy the poll URL by clicking "View Poll →" next to any poll
@@ -2889,7 +2889,7 @@ Open your browser to `http://localhost:5173` and you'll see the same polling fun
 
 RedwoodSDK's real-time system eliminates the need for custom WebSocket management, giving you live updates with minimal code.
 
-**What you've accomplished with RedwoodSDK:**
+#### What you've accomplished with RedwoodSDK
 
 - **Minimal backend code** in a single worker file (vs. extensive code across multiple files)
 - **Simple custom Durable Object** (vs. complex manual implementations)
@@ -2904,36 +2904,36 @@ You built the exact same application with significantly less code. Every infrast
   Your browser does not support the video tag.
 </video>
 
-## The Developer Experience Verdict
+## The developer experience verdict
 
 Both applications deliver identical functionality to your users: real-time voting, persistent data storage, and live updates across devices. They run on the same Cloudflare Workers infrastructure with the same performance characteristics. The difference is entirely in your development experience.
 
-### What RedwoodSDK Brings to the Table
+### What RedwoodSDK brings to the table
 
 RedwoodSDK significantly reduces the code required for identical functionality. You get a zero-config development environment with built-in authentication, real-time features, and database management. The framework handles infrastructure complexity that you'd otherwise manage manually.
 
-### The Tradeoffs to Consider
+### The tradeoffs to consider
 
 RedwoodSDK follows a "zero magic" philosophy with minimal abstraction over Cloudflare Workers. The framework generates standard Cloudflare Workers code and uses native Web APIs directly. The main tradeoff is framework dependency for infrastructure decisions, but you maintain full visibility into the underlying code.
 
-### When to Choose RedwoodSDK
+### When to choose RedwoodSDK
 
 RedwoodSDK excels when you want React server components, automatic real-time features, and built-in authentication while maintaining platform transparency. It's designed for developers who understand Cloudflare Workers but want framework-provided solutions for common patterns like WebSocket management and user sessions.
 
-### When to Stick with Cloudflare Workers
+### When to stick with Cloudflare Workers
 
 Choose Cloudflare Workers when you're building custom infrastructure patterns that don't fit standard web application models, or when you want to learn the platform primitives from first principles. RedwoodSDK assumes you want React-based server rendering and real-time capabilities.
 
-## Further Reading
+## Further reading
 
-### Cloudflare Workers Resources
+### Cloudflare Workers resources
 
 If you want to dive deeper into Cloudflare Workers development, explore the [Cloudflare Workers documentation](https://developers.cloudflare.com/workers/). The [Durable Objects guide](https://developers.cloudflare.com/durable-objects/) provides comprehensive coverage of stateful edge computing patterns.
 
-### RedwoodSDK Documentation
+### RedwoodSDK documentation
 
 Learn more about RedwoodSDK's capabilities at the [official documentation](https://docs.rwsdk.com). The [getting started guide](https://docs.rwsdk.com/getting-started) covers project setup, while the [React server components documentation](https://docs.rwsdk.com/react-server-components) explains how real-time features work under the hood.
 
-### Related Technologies
+### Related technologies
 
 To understand the broader ecosystem, check out [React Server Components](https://react.dev/blog/2023/03/22/react-labs-what-we-have-been-working-on-march-2023#react-server-components) from the React team and [Prisma's documentation](https://www.prisma.io/docs) for advanced database patterns that work with both approaches.
