@@ -1,6 +1,6 @@
 ---
-slug: i-tried-different-ways-to-give-claude-code-access-to-a-web-browser
-title: "I Tried Different Ways to Give Claude Code Access to a Web Browser"
+slug: we-tried-different-ways-to-give-claude-code-access-to-a-web-browser
+title: "We Tried Different Ways to Give Claude Code Access to a Web Browser"
 description: Comparing dev-browser and Claude Code's Chrome extension for browser automation. Testing token usage, speed, and reliability across authentication flows, documentation creation, and end-to-end workflows.
 authors: [simpletechguides]
 tags: [claude-code, browser-automation, testing, playwright, ai-agents]
@@ -8,13 +8,13 @@ keywords: [claude code, dev-browser, browser automation, playwright, chrome exte
 image: /img/comparisons/browser-automation/cover.png
 ---
 
-At Ritza, we build proof-of-concept applications for clients when documenting their products. AI coding agents handle simple projects well, registration pages, login flows, and todo apps take minutes. But clients want full MVPs that showcase what their product can do.
+At Ritza, we build proof-of-concept applications for clients when documenting their products. AI coding agents handle simple projects well, registration pages, login flows, and to-do apps take minutes. But clients want full MVPs that showcase what their product can do.
 
 AI agents announce "Perfect! Everything works now" when the UI is broken or features don't function. We needed a way for Claude Code to test its own work before declaring victory.
 
 We tested two browser automation approaches: dev-browser (a Playwright-based skill) and Claude Code's official Chrome extension. We built the same documentation builder app twice, tracked token usage, and measured completion time for identical tasks.
 
-Dev-browser used 33% fewer tokens and finished complex workflows in half the time. Here's what we learned.
+Dev-browser used an average 33% fewer tokens and finished complex workflows in half the time. Here's what we learned.
 
 ## Test methodology
 
@@ -22,7 +22,7 @@ We tested both tools with identical tasks using the same prompts in separate Cla
 
 We tracked token usage using ccusage and manual tracking, and measured time for each task completion. Our measurements have a margin of error of 7-10%, but the performance differences between tools are large enough that this margin doesn't affect our conclusions.
 
-**Note:** The token counts reported in this article (13k, 8k, 22k, 45k) reflect the visible token usage shown in Claude Code's interface. However, the actual API costs are higher because Claude Code performs additional work behind the scenes, cache reads, cache writes, and other operations not displayed in the UI. For reference, a typical day of building this documentation app consumed approximately 28 million tokens (including cache operations) at a cost of $12.58, as shown in our API usage logs.
+**Note:** The token counts reported in this article (13k, 8k, 22k, 45k) reflect the visible token usage shown in Claude Code's interface. However, the actual API costs are higher because Claude Code performs additional work behind the scenes, cache reads, cache writes, and other operations not displayed in the UI. For reference, a typical day of building this documentation app, and testing with both tools consumed approximately 28 million tokens (including cache operations) at a cost of $12.58, as shown in our API usage logs.
 
 ![Daily API token usage showing 28M tokens at $12.58 cost](/img/comparisons/browser-automation/daily-api-usage.png)
 
@@ -40,7 +40,7 @@ If you want to set up dev-browser, read [this article](/guides/use-claude-code-i
 
 ## Testing authentication
 
-We asked Claude Code to test signup, login, and logout paths.
+We asked Claude Code to test the signup, login, and logout paths.
 
 The Chrome extension took 15 minutes and consumed **13,000 tokens**. Dev-browser consumed **8,000 tokens**, 38% fewer because Playwright scripts generate more compact outputs than the Chrome extension's tool call responses.
 
@@ -56,7 +56,7 @@ The detail view was worse:
 
 We asked Claude to create a documentation project, add pages, preview markdown rendering, and publish it. The documentation topic: how to build a documentation website using our docs-builder. We also required high color accessibility with black and white only.
 
-Dev-browser took **20 minutes** and consumed **22,000 tokens**. The Chrome extension consumed **45,000 tokens** across multiple iterations, twice as many. Dev-browser's visual feedback was better, though we can't pinpoint why.
+Dev-browser took **12 minutes** and consumed around **22,000 tokens**. The Chrome extension consumed around **45,000 tokens** across multiple iterations, twice as many, and the operation took **20 minutes**. Dev-browser's visual feedback was better, though we can't pinpoint why.
 
 Both tools caught a critical bug: the publish feature wasn't implemented on the frontend. Claude only checked the API endpoint. The first version looked like this:
 
@@ -107,8 +107,6 @@ We ran the final test: create an account, create documentation for using the doc
 
 The Chrome extension took **32 minutes** from signup to writing, viewing, and publishing the documentation. Dev-browser took **15 minutes** for the same workflow, less than half the time.
 
-While observing the terminal and Chrome browser, we found why Chrome was slower: dev-browser has better navigation features and tools than the official Chrome extension.
-
 ## Why dev-browser is faster
 
 Dev-browser uses Playwright with a persistent browser context. Scripts are written in TypeScript and executed via `npx tsx`:
@@ -134,9 +132,9 @@ mcp__claude-in-chrome__computer(action: "screenshot")
 mcp__claude-in-chrome__read_page(tabId) // accessibility tree
 ```
 
-The architectural difference matters. Dev-browser writes one script that executes many actions, amortizing the startup cost. The Chrome extension requires Claude to interpret each tool response before deciding the next action, adding 2-3 seconds of "thinking time" between steps.
+The architectural difference matters. Dev-browser writes one script that executes many actions, amortizing the startup cost. The Chrome extension requires Claude to interpret each tool response before deciding the next action, adding 3-20 seconds of "thinking time" between steps.
 
-Dev-browser's two advantages: screenshotting and LLM-friendly DOM snapshots. When Claude takes screenshots and reads DOM snapshots optimized for token usage, it pinpoints what needs modification faster.
+Dev-browser also has two advantages: screenshotting and LLM-friendly DOM snapshots. When Claude takes screenshots and reads DOM snapshots optimized for token usage, it more quickly pinpoints what needs modification.
 
 ## Testing CSS injection speed
 
@@ -156,9 +154,7 @@ For this simple task, the Chrome extension was slightly faster and more token-ef
 
 The Chrome extension excels at small tasks (1-15 actions) where each tool call executes in approximately 200 milliseconds with near-zero startup overhead. Dev-browser requires 2-3 seconds for process spawning, compilation, and connection establishment before any action occurs.
 
-Dev-browser's strength emerges in complex workflows (20+ actions). The startup cost is paid once per script, then actions execute at native browser speed (50ms each) without thinking time between steps.
-
-The mathematical break-even occurs around 15-20 actions. With 5 actions, Chrome finishes in 1 second versus dev-browser's 2.75 seconds. With 30 actions, Chrome requires 66 seconds (including decision time) while dev-browser completes in 4 seconds—a 16x advantage that widens further with repetitive testing since scripts can be reused.
+Dev-browser's strength emerges in complex workflows (20+ actions). The startup cost is paid once per script, then actions execute at native browser speed without thinking time between steps.
 
 Here's the same workflow as a dev-browser script:
 
@@ -259,12 +255,10 @@ The graph below visualizes this performance difference. Chrome's linear executio
 
 ![Performance comparison](/img/comparisons/browser-automation/performance-comparison.png)
 
-Choose the Chrome extension for quick validations and exploratory testing. Choose dev-browser for end-to-end workflows, regression testing, and any automation you'll run repeatedly where writing a script once replaces dozens of manual tool calls.
+## Final thoughts
 
-## Our recommendation
+At Ritza, time matters. We write technical content, and we need Claude Code to test its work quickly. We recommend dev-browser for agentic browser testing and automation.
 
-At Ritza, time matters. We write technical content, and we need Claude Code to test its work quickly. We recommend dev-browser for browser testing and automation.
-
-Our projects showcase client products with more complexity than todo apps. Dev-browser excels at complex workflows, using 33% fewer tokens and finishing in half the time compared to the Chrome extension. For workflows with 20+ actions, the speed advantage reaches 16x.
+Our projects showcase client products with more complexity than to-do apps. Dev-browser excels at complex workflows, using 33% fewer tokens and finishing in half the time compared to the Chrome extension. For workflows with 20+ actions, the speed advantage reaches 16x.
 
 The Chrome extension works well for quick validations under 15 actions. But for end-to-end testing and scenarios you'll run repeatedly, dev-browser's upfront script investment pays off immediately.
