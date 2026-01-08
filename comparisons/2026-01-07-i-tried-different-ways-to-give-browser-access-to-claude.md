@@ -8,11 +8,11 @@ keywords: [claude code, dev-browser, browser automation, playwright, chrome exte
 image: /img/comparisons/browser-automation/cover.png
 ---
 
-At Ritza, we build proof-of-concept applications for clients when documenting their products. AI coding agents handle simple projects well, registration pages, login flows, and to-do apps take minutes. But clients want full MVPs that showcase what their product can do.
+At [Ritza](https://ritza.co/), we build proof-of-concept applications for clients when documenting their products. AI coding agents handle simple projects well, registration pages, login flows, and to-do apps take minutes. But our clients like full MVPs that showcase what their product can do.
 
-AI agents announce "Perfect! Everything works now" when the UI is broken or features don't function. We needed a way for Claude Code to test its own work before declaring victory.
+An AI coding agent will tell you, "Perfect! The application is ready to test now," when the UI is broken or features don't function. We needed a way for Claude Code, our favorite coding agent, to test its own work before declaring the task done.
 
-We tested two browser automation approaches: dev-browser (a Playwright-based skill) and Claude Code's official Chrome extension. We built the same documentation builder app twice, tracked token usage, and measured completion time for identical tasks.
+We tested two browser automation approaches: [dev-browser](https://github.com/SawyerHood/dev-browser) (a Playwright-based skill) and [Claude Code's official Chrome extension](https://claude.com/chrome). We built the same documentation builder app twice, tracked token usage, and measured completion time for identical tasks.
 
 Dev-browser used an average 33% fewer tokens and finished complex workflows in half the time. Here's what we learned.
 
@@ -20,7 +20,7 @@ Dev-browser used an average 33% fewer tokens and finished complex workflows in h
 
 We tested both tools with identical tasks using the same prompts in separate Claude Code sessions to prevent context carryover. Each test started fresh with no prior context to ensure fair comparison.
 
-We tracked token usage using ccusage and manual tracking, and measured time for each task completion. Our measurements have a margin of error of 7-10%, but the performance differences between tools are large enough that this margin doesn't affect our conclusions.
+We tracked token usage using [ccusage](https://ccusage.com/) and manual tracking, and measured the time for each task completion. Our measurements have a margin of error of 7-10%, but the performance differences between tools are large enough that this margin doesn't affect our conclusions.
 
 **Note:** The token counts reported in this article (13k, 8k, 22k, 45k) reflect the visible token usage shown in Claude Code's interface. However, the actual API costs are higher because Claude Code performs additional work behind the scenes, cache reads, cache writes, and other operations not displayed in the UI. For reference, a typical day of building this documentation app, and testing with both tools consumed approximately 28 million tokens (including cache operations) at a cost of $12.58, as shown in our API usage logs.
 
